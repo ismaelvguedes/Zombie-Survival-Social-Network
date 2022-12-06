@@ -21,7 +21,7 @@ Rede Social de Sobrevivência Zumbi é uma rede social em um cenário de mundo a
     * Nome -> VARCHAR;
     * Idade -> INT;
     * Sexo -> VARCHAR;
-    * saldo -> INT;
+    * Saldo -> INT;
 
 2. Localização:
     * <img src="https://static.vecteezy.com/ti/vetor-gratis/p1/155483-mapa-do-tesouro-vector-gratis-vetor.jpg" width="80px">
