@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+
+{% block base %}
+
+    {% for sobre in sobreviventes %}
+
+        {{sobre.nome}}<br>
+
+    {% endfor %}
+
+{% endblock %}
