@@ -30,7 +30,7 @@ Rede Social de Sobrevivência Zumbi é uma rede social em um cenário de mundo a
     * Horário -> DATETIME;
     * sobrevivente -> Sobrevivente;
 
-3. Inventario:
+3. Inventário:
     * <img src="https://i.pinimg.com/736x/86/da/ac/86daacfd8ac30bc5e6a611955e456e0d.jpg" width="80px">
     * sobrevivente -> Sobrevivente;
 
@@ -40,9 +40,9 @@ Rede Social de Sobrevivência Zumbi é uma rede social em um cenário de mundo a
     * Quantidade -> INT;
     * Validade -> VARCHAR - OBS: Se tiver;
     * Tipo: -> VARCHAR - Ex .: "Água, Comida, Medicação, Armas, Munição, Circuito, Mapas, IE(Itens especiais)";
-    * Inventario -> Inventario;
+    * Inventário -> Inventario;
 
-5. Cambio:
+5. Câmbio:
     * <img src="https://1.bp.blogspot.com/-NkX9rKZKCDM/YairuZxKt-I/AAAAAAAA76A/Up-ZpLRQMxUj1NOVqJ6lza7qTfZfyExBwCNcBGAsYHQ/s16000/distrato-escritura-publica-nao-registrada.webp" width="80px">
     * itemVenda -> Recurso;
     * quantidadeIV -> INT;
