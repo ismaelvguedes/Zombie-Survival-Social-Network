@@ -21,17 +21,34 @@ Rede Social de Sobrevivência Zumbi é uma rede social em um cenário de mundo a
     * Nome -> VARCHAR;
     * Idade -> INT;
     * Sexo -> VARCHAR;
+    * saldo -> INT;
 
 2. Localização:
     * <img src="https://static.vecteezy.com/ti/vetor-gratis/p1/155483-mapa-do-tesouro-vector-gratis-vetor.jpg" width="80px">
     * Latitude -> FLOAT;
     * Longitude -> FLOAT;
     * Horário -> DATETIME;
-    * sobrevivent -> Sobrevivente;
+    * sobrevivente -> Sobrevivente;
 
-3. Recurso:https:
+3. Inventario:
+    * sobrevivente -> Sobrevivente;
+
+4. Recurso:
     * <img src="https://portalvidalivre.com/uploads/article/image/1528/Design_sem_nome_-_2022-01-24T061629.364.jpg" width="80px">
     * Descrição -> VARCHAR - Ex .: "Munição .5mm - Tauros";
     * Quantidade -> INT;
     * Validade -> VARCHAR - OBS: Se tiver;
     * Tipo: -> VARCHAR - Ex .: "Água, Comida, Medicação, Armas, Munição, Circuito, Mapas, IE(Itens especiais)";
+    * Inventario -> Inventario;
+
+5. Cambio:
+    * itemVenda -> Recurso;
+    * quantidadeIV -> INT;
+    * vendedor -> Sobrevivente;
+    
+    * valor -> INT;
+    * vendido -> BOOL;
+
+    * itemCompra -> Recurso;
+    * quantidadeIC -> INT;
+    * comprador -> Sobrevivente;
