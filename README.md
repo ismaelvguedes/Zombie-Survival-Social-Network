@@ -31,6 +31,7 @@ Rede Social de Sobrevivência Zumbi é uma rede social em um cenário de mundo a
     * sobrevivente -> Sobrevivente;
 
 3. Inventario:
+    * <img src="https://i.pinimg.com/736x/86/da/ac/86daacfd8ac30bc5e6a611955e456e0d.jpg" width="80px">
     * sobrevivente -> Sobrevivente;
 
 4. Recurso:
@@ -42,6 +43,7 @@ Rede Social de Sobrevivência Zumbi é uma rede social em um cenário de mundo a
     * Inventario -> Inventario;
 
 5. Cambio:
+    * <img src="https://1.bp.blogspot.com/-NkX9rKZKCDM/YairuZxKt-I/AAAAAAAA76A/Up-ZpLRQMxUj1NOVqJ6lza7qTfZfyExBwCNcBGAsYHQ/s16000/distrato-escritura-publica-nao-registrada.webp" width="80px">
     * itemVenda -> Recurso;
     * quantidadeIV -> INT;
     * vendedor -> Sobrevivente;
