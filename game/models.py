@@ -24,7 +24,7 @@ class Inventario(models.Model):
 
 class Recurso(models.Model):
     descricao = models.CharField(verbose_name="Descrição", max_length=100)
-    quantidade = models.IntegerField(verbose_name="Quantidade")
+    quantidade = models.IntegerField(verbose_name="Quantidade", default=1)
     validade = models.DateField(verbose_name="Validade", null=True, blank=True)
     recurso_tipos = (
         ('Ar', 'Água'),

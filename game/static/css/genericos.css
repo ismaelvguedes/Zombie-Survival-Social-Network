@@ -1,0 +1,27 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Covered+By+Your+Grace&family=Indie+Flower&display=swap");
+
+/*
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Covered By Your Grace', cursive;
+    font-family: 'Indie Flower', cursive;
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Covered By Your Grace', cursive;
+    color: var(--cor-texto);
+}
+
+:root {
+    --cor-fundo: #464646; 
+    --cor-texto: #222;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
