@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,400;1,300&family=Covered+By+Your+Grace&display=swap');
+
 /*
     font-family: 'Barlow Condensed', sans-serif;
     font-family: 'Covered By Your Grace', cursive;
@@ -21,13 +22,19 @@
 body {
     width: 100%;
     min-height: 100vh;
+
+    background-color: var(--cor-fundo);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .info {
-    margin: 10px;
     padding: 5px 8px;
 
-    background-color: rgba(34, 34, 34, .8);
+    background-color: rgba(19, 19, 19, 0.9);
     color: white;
 }
 

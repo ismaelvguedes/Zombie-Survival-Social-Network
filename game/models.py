@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Sobrevivente(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="Usuário")
-    nome = models.CharField(verbose_name="Nome", max_length=30)
     datenasc = models.DateField(verbose_name="Data de Nascimento")
     sexo_tipos = (
         ('M','Masculino'), 

@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from game.models import Sobrevivente
 
+def iniciar(request):
+    return render(request, 'theme/inicio.html')
+
 def conectar(request):
-    return render(request, 'theme/login.html')
+    return render(request, 'theme/entrada.html')
 
 def desconectar(request):
     logout(request)
-    return redirect('inicio')
+    return redirect('iniciar')
 
 def autenticar(request):
     usuario = request.POST['user']
@@ -15,7 +18,7 @@ def autenticar(request):
     sobrevivente = authenticate(request, username=usuario, password=senha)
     if sobrevivente is not None:
         login(request, sobrevivente)
-        return redirect('inicio')
+        return redirect('iniciar')
     else:
         return redirect('conectar')
 
