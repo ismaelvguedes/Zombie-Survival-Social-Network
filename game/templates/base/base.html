@@ -13,16 +13,16 @@
         <title>ZSSN</title>
 
         <!-- Folha de estilo simples -->
+        <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/218/218153.png" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'css/genericos.css' %}">
+        <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+        {% block importes %}{% endblock %}
 
     </head>
 
     <body>
 
-    {% block base %}
-
-        
-
-    {% endblock %}
+        {% block base %}{% endblock %}
         
     </body>
 

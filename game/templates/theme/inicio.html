@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block base %}
+
+    <nav id="menu">
+        <ul>
+            <li><a href="{% url 'iniciar' %}">Inicio</a></li>
+            {% if not user.is_authenticated %}
+                <li><a href="{% url 'conectar' %}">Conectar</a></li>
+                <li><a href="{% url 'cadastrar' %}">Cadastrar</a></li>
+            {% else %}
+                <li><a href="{% url 'desconectar' %}">Sair</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+
+    
+    <a class="info">Esse é um pequeno teste de estilo de texto<br></a>
+
+{% endblock %}

@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Sobrevivente(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="Usuário")
-    nome = models.CharField(verbose_name="Nome", max_length=30)
     datenasc = models.DateField(verbose_name="Data de Nascimento")
     sexo_tipos = (
         ('M','Masculino'), 
@@ -14,17 +13,17 @@ class Sobrevivente(models.Model):
     saldo = models.IntegerField(verbose_name="Saldo", default=0)
 
     def __str__(self) -> str:
-        return f"{self.nome} -> {self.saldo} pontos"
+        return f"{self.usuario.first_name} {self.usuario.last_name} -> {self.saldo} pontos"
 
 class Inventario(models.Model):
     sobrevivente = models.OneToOneField(Sobrevivente, on_delete=models.CASCADE, verbose_name="Dono")
 
     def __str__(self) -> str:
-        return f" Inventário({self.id}) do sobrevivente {self.sobrevivente.nome}"
+        return f" Inventário({self.id}) do sobrevivente {self.sobrevivente.usuario.first_name}"
 
 class Recurso(models.Model):
     descricao = models.CharField(verbose_name="Descrição", max_length=100)
-    quantidade = models.IntegerField(verbose_name="Quantidade")
+    quantidade = models.IntegerField(verbose_name="Quantidade", default=1)
     validade = models.DateField(verbose_name="Validade", null=True, blank=True)
     recurso_tipos = (
         ('Ar', 'Água'),
