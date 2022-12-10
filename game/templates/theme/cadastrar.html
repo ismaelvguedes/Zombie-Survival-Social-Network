@@ -1,0 +1,20 @@
+{% extends 'base/baseCentral.html' %}
+
+{% load static %}
+
+{% block importes %}
+
+    <link rel="stylesheet" href="{% static 'css/formularios.css' %}">
+
+{% endblock %}
+
+{% block base %}
+
+    <form id="formulario" method="POST" enctype="multipart/form-data" action="{% url 'cadastrar' %}">
+        {% csrf_token %}
+        {{ formUser.as_p }}
+        {{ formSob.as_p }}
+        <input type="submit">
+    </form>
+
+{% endblock %}

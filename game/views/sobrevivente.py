@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from game.forms import UsuarioCreateForm, SobreviventeForm
 from game.models import Sobrevivente
 
 def iniciar(request):
@@ -7,6 +8,25 @@ def iniciar(request):
 
 def conectar(request):
     return render(request, 'theme/entrada.html')
+
+def cadastrar(request):
+    if request.method == "POST":
+        formUser = UsuarioCreateForm(request.POST)
+        formSob = SobreviventeForm(request.POST)
+        
+        if formUser.is_valid() and formSob.is_valid():
+            usuario = formUser.save()
+            sobrevivente = formSob.save(commit=False)
+            sobrevivente.usuario = usuario
+            formSob.save()
+
+            return redirect('iniciar')
+
+    else:
+        formUser = UsuarioCreateForm()
+        formSob = SobreviventeForm()
+
+    return render(request, 'theme/cadastrar.html', { 'formUser' : formUser, 'formSob' : formSob })
 
 def desconectar(request):
     logout(request)

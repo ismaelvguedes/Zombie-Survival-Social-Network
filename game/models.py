@@ -13,7 +13,7 @@ class Sobrevivente(models.Model):
     saldo = models.IntegerField(verbose_name="Saldo", default=0)
 
     def __str__(self) -> str:
-        return f"{self.nome} -> {self.saldo} pontos"
+        return f"{self.usuario.first_name} {self.usuario.last_name} -> {self.saldo} pontos"
 
 class Inventario(models.Model):
     sobrevivente = models.OneToOneField(Sobrevivente, on_delete=models.CASCADE, verbose_name="Dono")
