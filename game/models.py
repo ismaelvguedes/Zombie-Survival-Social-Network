@@ -19,7 +19,7 @@ class Inventario(models.Model):
     sobrevivente = models.OneToOneField(Sobrevivente, on_delete=models.CASCADE, verbose_name="Dono")
 
     def __str__(self) -> str:
-        return f" Inventário({self.id}) do sobrevivente {self.sobrevivente.nome}"
+        return f" Inventário({self.id}) do sobrevivente {self.sobrevivente.usuario.first_name}"
 
 class Recurso(models.Model):
     descricao = models.CharField(verbose_name="Descrição", max_length=100)

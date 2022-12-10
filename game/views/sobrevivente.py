@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from game.forms import UsuarioCreateForm, SobreviventeForm
-from game.models import Sobrevivente
+from game.models import Sobrevivente, Inventario
 
 def iniciar(request):
     return render(request, 'theme/inicio.html')
@@ -19,6 +19,8 @@ def cadastrar(request):
             sobrevivente = formSob.save(commit=False)
             sobrevivente.usuario = usuario
             formSob.save()
+            inventario = Inventario.objects.create(sobrevivente=sobrevivente)
+            inventario.save()
 
             return redirect('iniciar')
 
