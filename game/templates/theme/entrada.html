@@ -1,0 +1,22 @@
+{% extends 'base/baseCentral.html' %}
+
+{% load static %}
+
+{% block importes %}
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+{% endblock %}
+
+{% block base %}
+
+    <form id="form_login" method="post" action="{% url 'autenticar' %}">
+        {% csrf_token %}
+        <ul>
+            <li><label for="inp_user">Usuário:</label><input id="inp_user" name="user" type="text" maxlength="20"></li>
+            <li><label for="inp_pass">Senha:</label><input id="inp_pass" name="pass" type="password"></li>
+            <li><input type="submit"></li>
+        </ul>
+    </form>
+
+{% endblock %}

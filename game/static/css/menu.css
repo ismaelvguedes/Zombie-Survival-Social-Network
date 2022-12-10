@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+#menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#menu ul {
+    display: inline;
+
+    list-style: none;
+}
+
+#menu ul > li {
+    float: left;
+
+    margin: 5px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px solid white;
+
+    background-color: transparent;
+    color: white;
+
+    cursor: pointer;
+}
+
+#menu ul > li:hover {
+    border: 2px solid red;
+    color: red;
+}
