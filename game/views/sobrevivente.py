@@ -47,4 +47,4 @@ def autenticar(request):
 
 def listar_sobreviventes(request):
     sobreviventes = Sobrevivente.objects.all()
-    return render(request, 'theme/listar.html', { 'sobreviventes' : sobreviventes})
+    return render(request, 'theme/listar_sobreviventes.html', { 'sobreviventes' : sobreviventes})
