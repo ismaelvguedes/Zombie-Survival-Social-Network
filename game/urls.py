@@ -14,6 +14,6 @@ urlpatterns = [
     path('listar_sobreviventes', listar_sobreviventes, name="listar"),
 
      # Recurso:
-     path('listar_recursos', listar_recursos, name="listar_recursos"),
+     path('inventario', inventario, name="inventario"),
 
 ]
