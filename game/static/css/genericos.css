@@ -12,11 +12,12 @@
     box-sizing: border-box;
 
     font-family: 'Barlow Condensed', sans-serif;
+    color: var(--cor-texto);
 }
 
 :root {
     --cor-fundo: #222; 
-    --cor-texto: rgb(81, 186, 33);
+    --cor-texto: #fff;
 }
 
 body {
