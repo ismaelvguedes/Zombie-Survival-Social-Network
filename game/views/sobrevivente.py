@@ -44,6 +44,7 @@ def autenticar(request):
     else:
         return redirect('conectar')
 
+
 def listar_sobreviventes(request):
     sobreviventes = Sobrevivente.objects.all()
     return render(request, 'theme/listar.html', { 'sobreviventes' : sobreviventes})
