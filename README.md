@@ -11,8 +11,8 @@ Rede Social de Sobrevivência Zumbi é uma rede social em um cenário de mundo a
 6. Um menu que esteja em todas as páginas acima e que mostre informações como localização e recursos essenciais;
 
 * Observações: 
-    1. Os recurso, que não estão para venda, não serão mostrados para outros sobrevivêntes, pois isso evitará roubos e furtos;
-    2. O mapa o sobrevivente poderar registrar estruturas e locais, para informar possiveis locais de refugio ou hordas de zumbie;
+    1. Os recursos, que não estão para venda, não serão mostrados para outros sobrevivêntes, pois isso evitará roubos e furtos;
+    2. O mapa do sobrevivente poderar registrar estruturas e locais, para informar possiveis locais de refugio ou hordas de zumbis;
 
 ## Tabelas:
 
