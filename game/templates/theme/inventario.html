@@ -2,10 +2,30 @@
 
 {% block base %}
 
-    {% for recurso in recursos %}
+    <table>
 
-        <a class="info">{{ recurso }}<br></a>
+        <tr id="nomes">
+            <td>Nº</td>
+            <td>Descrição</td>
+            <td>Quantidade</td>
+            <td>Validade</td>
+            <td>Tipo</td>
+        </tr>
 
-    {% endfor %}
+        {% for recurso in recursos %}
+            <tr class="dado">
+                <td>{{ recurso.id }}</td>
+                <td>{{ recurso.descricao }}</td>
+                <td>{{ recurso.quantidade }}</td>
+                <td>{{ recurso.validade }}</td>
+                <td>{{ recurso.tipo }}</td>
+                <td id="editar"><a href="">EDITAR</a></td>
+                <td id="remover"><a href="{% url 'removerRecurso' id=recurso.id %}">DELETAR</a></td>
+            </tr>
+        {% endfor %}
+
+        <a href="{% url 'adicionarRecurso' %}">ADICIONAR</a>
+
+    </table>
 
 {% endblock %}
