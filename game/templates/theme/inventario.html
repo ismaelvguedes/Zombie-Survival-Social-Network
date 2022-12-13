@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block base %}
+
+    <table>
+
+        <tr id="nomes">
+            <td>Nº</td>
+            <td>Descrição</td>
+            <td>Quantidade</td>
+            <td>Validade</td>
+            <td>Tipo</td>
+        </tr>
+
+        {% for recurso in recursos %}
+            <tr class="dado">
+                <td>{{ forloop.counter }}</td>
+                <td>{{ recurso.descricao }}</td>
+                <td>{{ recurso.quantidade }}</td>
+                <td>{{ recurso.validade | default_if_none:'Não perecível' }}</td>
+                <td>{{ recurso.verTipo }}</td>
+                <td id="editar"><a href="{% url 'editarRecurso' id=recurso.id %}">EDITAR</a></td>
+                <td id="remover"><a href="{% url 'removerRecurso' id=recurso.id %}">DELETAR</a></td>
+            </tr>
+        {% endfor %}
+
+        <a href="{% url 'adicionarRecurso' %}">ADICIONAR</a>
+
+    </table>
+
+{% endblock %}

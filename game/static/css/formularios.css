@@ -3,3 +3,7 @@
 #formulario {
     color: white;
 }
+
+select , option {
+    color:black;
+}

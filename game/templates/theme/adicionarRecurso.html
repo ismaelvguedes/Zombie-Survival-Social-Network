@@ -1,0 +1,19 @@
+{% extends 'base/baseCentral.html' %}
+
+{% load static %}
+
+{% block importes %}
+
+    <link rel="stylesheet" href="{% static 'css/formularios.css' %}">
+
+{% endblock %}
+
+{% block base %}
+
+    <form id="formulario" method="POST" enctype="multipart/form-data" action="{% url 'adicionarRecurso' %}">
+        {% csrf_token %}
+        {{ formRec.as_p }}
+        <input type="submit" value="Salvar">
+    </form>
+
+{% endblock %}

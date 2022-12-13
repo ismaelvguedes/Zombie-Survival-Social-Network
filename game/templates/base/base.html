@@ -29,6 +29,7 @@
                     <li><a href="{% url 'conectar' %}">Conectar</a></li>
                     <li><a href="{% url 'cadastrar' %}">Cadastrar</a></li>
                 {% else %}
+                    <li><a href="{% url 'inventario' %}">Inventário</a></li>
                     <li><a href="{% url 'desconectar' %}">Sair</a></li>
                 {% endif %}
     
