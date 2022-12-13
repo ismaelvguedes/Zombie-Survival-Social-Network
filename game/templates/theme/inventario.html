@@ -14,12 +14,12 @@
 
         {% for recurso in recursos %}
             <tr class="dado">
-                <td>{{ recurso.id }}</td>
+                <td>{{ forloop.counter }}</td>
                 <td>{{ recurso.descricao }}</td>
                 <td>{{ recurso.quantidade }}</td>
-                <td>{{ recurso.validade }}</td>
-                <td>{{ recurso.tipo }}</td>
-                <td id="editar"><a href="">EDITAR</a></td>
+                <td>{{ recurso.validade | default_if_none:'Não perecível' }}</td>
+                <td>{{ recurso.verTipo }}</td>
+                <td id="editar"><a href="{% url 'editarRecurso' id=recurso.id %}">EDITAR</a></td>
                 <td id="remover"><a href="{% url 'removerRecurso' id=recurso.id %}">DELETAR</a></td>
             </tr>
         {% endfor %}

@@ -24,7 +24,7 @@ class Inventario(models.Model):
 class Recurso(models.Model):
     descricao = models.CharField(verbose_name="Descrição", max_length=100)
     quantidade = models.IntegerField(verbose_name="Quantidade", default=1)
-    validade = models.DateField(verbose_name="Validade", null=True, blank=True)
+    validade = models.DateField(verbose_name="Validade", null=True, blank=True, help_text="Somente se for perecível")
     recurso_tipos = (
         ('Ar', 'Água'),
         ('Al', 'Alimento'), 
@@ -39,3 +39,9 @@ class Recurso(models.Model):
 
     def __str__(self) -> str:
         return f"Item({self.id}) -> {self.descricao}"
+
+    def verTipo(self) -> str:
+        for valor in self.recurso_tipos: 
+            if valor[0] == self.tipo:
+                return valor[1]
+        

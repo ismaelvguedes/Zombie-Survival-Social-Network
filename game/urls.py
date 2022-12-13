@@ -15,6 +15,7 @@ urlpatterns = [
 
      # Recurso:
     path('inventario', inventario, name="inventario"),
-    path('inventario/adicionar', adicionarRecurso, name="adicionarRecurso"),
+    path('inventario/novo', adicionarRecurso, name="adicionarRecurso"),
+    path('inventario/<int:id>/editar', editarRecurso, name="editarRecurso"),
     path('inventario/<int:id>/deletar', removerRecurso, name="removerRecurso"),
 ]
