@@ -4,6 +4,7 @@
 /*
     font-family: 'Barlow Condensed', sans-serif;
     font-family: 'Covered By Your Grace', cursive;
+    font-family: 'Barlow Condensed', sans-serif;
 */
 
 * {
@@ -11,7 +12,8 @@
     padding: 0;
     box-sizing: border-box;
 
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: "Minecraft", "Medium";
+
     color: var(--cor-texto);
 }
 
@@ -24,7 +26,9 @@ body {
     width: 100%;
     min-height: 100vh;
 
-    background-color: var(--cor-fundo);
+    background: url("../img/fundo-grama.jpg");;/**/
+    font-family: "Minecraft", "Medium";
+    background-size: 50px;
 }
 
 a {
@@ -35,24 +39,47 @@ a {
 input {
     margin: 5px;
     padding: 1px 10px;
-    border-radius: 25px;
-    border: 2px solid green;
-    background-color: transparent;
+    background-color: rgba(34, 34, 34, 0.75);
+    border: 3px ridge white;
+    border-radius: 5px;
     outline: none;
 }
 
-.info {
-    padding: 5px 8px;
+.forma-relevo {
+    display: inline-block;
+    padding: 5px;
 
-    background-color: rgba(19, 19, 19, 0.9);
+    border: 3px outset var(--borda);
+    border-radius: 2px;
+    
+    background-color: var(--fundo);
+    box-shadow: 0px 0px 1px 1px black, 0px 0px 10px 0px rgba(23, 23, 23, 0.986);
     color: white;
+    text-shadow: 1px 1px gray;
 }
 
-/* Teste
-*   {
-    color: var(--cor-texto);
+.forma-relevo-fixa {
+    display: inline-block;
+    padding: 5px;
+
+    border: 3px outset var(--borda);
+    border-radius: 2px;
+    
+    background-color: var(--fundo);
+    box-shadow: 0px 0px 1px 1px black, 0px 0px 10px 0px rgba(23, 23, 23, 0.986);
+    color: white;
+    text-shadow: 1px 1px gray;
 }
-body {
-    background-color: var(--cor-fundo);
+
+.forma-relevo:hover {
+    background-color: var(--fundo);
+    border: 3px inset var(--borda);
 }
-*/
+
+.forma-caixa {
+    padding: 20px;
+    border-radius: 5px;
+    border: 3px ridge white;
+
+    background-color: rgba(34, 34, 34, 0.75);
+}

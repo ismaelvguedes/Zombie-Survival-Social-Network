@@ -7,3 +7,7 @@
 select , option {
     color:black;
 }
+
+#form_login ul li{
+    list-style: none;
+}

@@ -13,24 +13,25 @@
         <title>ZSSN</title>
 
         <!-- Folha de estilo simples -->
-        <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/218/218153.png" type="image/x-icon">
+        <link rel="shortcut icon" href="{% static 'img/icone.png' %}" type="image/x-icon">
         <link rel="stylesheet" href="{% static 'css/genericos.css' %}">
         <link rel="stylesheet" href="{% static 'css/menu.css' %}">
-        {% block importes %}{% endblock %}
-
+        <link rel="stylesheet" href="{% static 'css/formularios.css' %}">
+        
     </head>
 
     <body>
 
         <nav id="menu">
             <ul>
-                <li><a href="{% url 'iniciar' %}">Inicio</a></li>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a href="{% url 'iniciar' %}"><img class="icone-menu"src="{% static 'img/icone-casa.png' %}">Inicio</a></li>
                 {% if not user.is_authenticated %}
-                    <li><a href="{% url 'conectar' %}">Conectar</a></li>
-                    <li><a href="{% url 'cadastrar' %}">Cadastrar</a></li>
+                    <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'conectar' %}"><img class="icone-menu" src="{% static 'img/icone-entrar.png' %}">Entrar</a></li>
+                    <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'cadastrar' %}"><img class="icone-menu" src="{% static 'img/icone-criar.png' %}">Criar</a></li>
                 {% else %}
-                    <li><a href="{% url 'inventario' %}">Inventário</a></li>
-                    <li><a href="{% url 'desconectar' %}">Sair</a></li>
+                    <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'inventario' %}"><img class="icone-menu" src="{% static 'img/icone-mapa.png' %}">Mapa</a></li>
+                    <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'inventario' %}"><img class="icone-menu" src="{% static 'img/icone-bau.png' %}">Báu</a></li>
+                    <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'desconectar' %}"><img class="icone-menu" src="{% static 'img/icone-porta.png' %}">Sair</a></li>
                 {% endif %}
     
             </ul>

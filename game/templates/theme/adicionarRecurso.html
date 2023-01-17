@@ -10,10 +10,10 @@
 
 {% block base %}
 
-    <form id="formulario" method="POST" enctype="multipart/form-data" action="{% url 'adicionarRecurso' %}">
+    <form id="formulario" class="forma-caixa" method="POST" enctype="multipart/form-data" action="{% url 'adicionarRecurso' %}">
         {% csrf_token %}
         {{ formRec.as_p }}
-        <input type="submit" value="Salvar">
+        <input class="forma-relevo" style="--borda: white;--fundo: #d9d9d9; --cfundo: #c8c8c8;" type="submit" value="Salvar">
     </form>
 
 {% endblock %}

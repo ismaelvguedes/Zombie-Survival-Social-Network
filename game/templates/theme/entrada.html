@@ -10,12 +10,12 @@
 
 {% block base %}
 
-    <form id="form_login" method="post" action="{% url 'autenticar' %}">
+    <form id="form_login" class="forma-caixa" method="post" action="{% url 'autenticar' %}">
         {% csrf_token %}
         <ul>
-            <li><label for="inp_user">Usuário:</label><input id="inp_user" name="user" type="text" maxlength="20"></li>
+            <li><label for="inp_user">Usuario:</label><input id="inp_user" name="user" type="text" maxlength="20"></li>
             <li><label for="inp_pass">Senha:</label><input id="inp_pass" name="pass" type="password"></li>
-            <li><input type="submit"></li>
+            <li><input class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;" type="submit" value="Entrar"></li>
         </ul>
     </form>
 
