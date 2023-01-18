@@ -2,22 +2,22 @@
 
 {% block base %}
 
-    <table>
+    <div id="inventario">
 
         {% for recurso in recursos %}
-            <tr class="dado forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;">
-                <td>{{ forloop.counter }}</td>
-                <td>{{ recurso.descricao }}</td>
-                <td>{{ recurso.quantidade }}</td>
-                <td>{{ recurso.validade | default_if_none:'Não perecível' }}</td>
-                <td>{{ recurso.verTipo }}</td>
-                <td id="editar"><a class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;"   href="{% url 'editarRecurso' id=recurso.id %}">EDITAR</a></td>
-                <td id="remover"><a class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerRecurso' id=recurso.id %}">DELETAR</a></td>
-            </tr>
+            <div class="dado forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;">
+                <p>{{ forloop.counter }}</p>
+                <p>{{ recurso.descricao }}</p>
+                <p>{{ recurso.quantidade }}</p>
+                <p>{{ recurso.validade | default_if_none:'Não perecível' }}</p>
+                <p>{{ recurso.verTipo }}</p>
+                <a id="edit" class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;"   href="{% url 'editarRecurso' id=recurso.id %}">EDITAR</a>
+                <a id="rm"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerRecurso' id=recurso.id %}">&nbspx&nbsp</a>
+            </div>
         {% endfor %}
         
 
-    </table>
-    <a class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'adicionarRecurso' %}">ADICIONAR</a>
+    </div>
+    <a id="add" class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'adicionarRecurso' %}">&nbsp+&nbsp</a>
 
 {% endblock %}
