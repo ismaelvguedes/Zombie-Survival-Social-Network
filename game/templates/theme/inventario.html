@@ -1,23 +1,39 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block base %}
+    <div class="campo forma-caixa">
+        <h1 id="titulo">Pesquisa</h1>
+        <form method="GET" enctype="multipart/form-data"> 
+            <label>Procurar por:</label>
+            <input class="forma-caixa" type="text">
+            <input class="forma-relevo" style="--borda: #0064ff;--fundo: #0055d9;" type="submit" value="search">
+        </form>
+    </div>
+    <div id="inventario" class="campo forma-caixa">
 
-    <div id="inventario">
+        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-bau.png' %}">&nbspInventario</h1>
 
         {% for recurso in recursos %}
-            <div class="dado forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;">
-                <p>{{ forloop.counter }}</p>
-                <p>{{ recurso.descricao }}</p>
-                <p>{{ recurso.quantidade }}</p>
-                <p>{{ recurso.validade | default_if_none:'Não perecível' }}</p>
+            <div class="item forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;">
+                <p><b>{{ recurso.descricao }}</b></p>
+                <p>{{ recurso.quantidade }} unidades</p>
+                <p>
+                    {% with validade=recurso.validade|date:'d/m/Y' %}
+                        {% if validade == "" %}
+                            Não perecivel
+                        {% else %}
+                            {{validade}}
+                        {% endif %}
+                    {% endwith %}</p>
                 <p>{{ recurso.verTipo }}</p>
-                <a id="edit" class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;"   href="{% url 'editarRecurso' id=recurso.id %}">EDITAR</a>
-                <a id="rm"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerRecurso' id=recurso.id %}">&nbspx&nbsp</a>
+                <a id="edit" class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;"   href="{% url 'editarRecurso' id=recurso.id %}">Editar</a>
+                <a id="rm"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerRecurso' id=recurso.id %}">Deletar</a>
             </div>
         {% endfor %}
-        
+
+        <a id="add" class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'adicionarRecurso' %}">Adicionar</a>
 
     </div>
-    <a id="add" class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'adicionarRecurso' %}">&nbsp+&nbsp</a>
 
 {% endblock %}

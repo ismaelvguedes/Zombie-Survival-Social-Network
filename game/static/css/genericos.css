@@ -23,10 +23,14 @@
 body {
     width: 100%;
     min-height: 100vh;
-    padding-top: 140px;
+    padding-top: 160px;
 
     background: url("../img/fundo-pedra-lisa.jpg");
     background-size: 100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 a {
@@ -41,6 +45,32 @@ input {
     border: 3px ridge white;
     border-radius: 5px;
     outline: none;
+}
+
+.campo {
+    position: relative;
+    margin: 20px;
+    padding: 80px 20px 20px 20px;
+
+    display: flex;
+    gap: 10px;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.campo > #titulo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    border-bottom: 2px solid white;
+
+    font-size: 30px;
+
+    display: flex;
+    align-items: flex-end;
 }
 
 .forma-relevo {
@@ -75,7 +105,6 @@ input {
 }
 
 .forma-caixa {
-    padding: 20px;
     border-radius: 5px;
     border: 3px ridge white;
 
