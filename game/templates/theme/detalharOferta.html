@@ -18,7 +18,7 @@
     </div>
     <div id="inventario" class="campo forma-caixa">
 
-        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-steve.png' %}">&nbspMeus Cambios</h1>
+        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-loja.png' %}">&nbspDetalhar Oferta</h1>
 
         {% for cambio in cambios %}
             <div class="item forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;">
@@ -26,14 +26,14 @@
                 <p>Oferecir <b style="color: red;">{{ cambio.secundaria }}</b></p>
                 <p>Para {{ cambio.primaria.vendedor }}</p>
                 <p>Estado:{{ cambio.verEstado }}</p>
-                <a id="topRight"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerCambio' id=cambio.id %}">&nbspx&nbsp</a>
+                <a id="bottomRight"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'recusarCambio' id=cambio.id %}">Recusar</a>
             </div>
         {% endfor %}
         {% if quant == 0 %}
-            Voce não tem cambios, selecione ofertas!
-        {% endif %}
+            Voce não tem pedidos de cambios, aguarde alguem fazer uma proposta!
 
-        <a id="add" class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'loja' %}">Criar</a>
+            <a id="add" class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'loja' %}">Criar</a>
+        {% endif %}
 
     </div>
 

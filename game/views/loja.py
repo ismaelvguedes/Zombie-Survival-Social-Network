@@ -27,15 +27,36 @@ def ofertar(request):
                 return redirect('loja')
     return redirect('iniciar')
 
+def detalharOferta(request, id):
+    if request.user.is_authenticated: 
+        usuario = Sobrevivente.objects.get(id=request.user.id)
+        oferta = Oferta.objects.get(id=id)
+        if oferta.vendedor == usuario:  
+            cambios = Cambio.objects.filter(primaria__id=oferta.id)
+            return render(request, "theme/detalharOferta.html", { "cambios" : cambios, "quant": len(cambios)  })
+    
+    return redirect('minhasOfertas')
+
 def removerOferta(request, id):
     if request.user.is_authenticated: 
         usuario = Sobrevivente.objects.get(id=request.user.id)
         oferta = Oferta.objects.get(id=id)
         if oferta.vendedor == usuario:  
             oferta.delete()
-        return redirect('minhas_ofertas')
+            return redirect('minhasOfertas')
     
-    return redirect('minhas_ofertas')
+    return redirect('minhasOfertas')
+
+def recusarCambio(request, id):
+    if request.user.is_authenticated: 
+        usuario = Sobrevivente.objects.get(id=request.user.id)
+        cambio = Cambio.objects.get(id=id)
+        if cambio.primaria.vendedor == usuario:  
+            cambio.estado = 'R'
+            cambio.save()
+            return redirect('minhasOfertas')
+
+    return redirect('minhasOfertas')
 
 def selecionarOferta(request, id):
     if request.user.is_authenticated:

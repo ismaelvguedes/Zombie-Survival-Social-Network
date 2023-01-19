@@ -3,7 +3,7 @@
 
 {% block submenu %}
     <li><a href="{% url 'loja' %}">Loja Ofertas</a></li>
-    <li><a href="{% url 'minhas_ofertas' %}">Minhas Ofertas</a></li>
+    <li><a href="{% url 'minhasOfertas' %}">Minhas Ofertas</a></li>
     <li><a href="{% url 'meusCambios' %}">Meus Cambios</a></li>
 {% endblock submenu %}
 
@@ -35,7 +35,7 @@
                     {% endwith %}</p>
                 <p>{{ oferta.produto.verTipo }}</p>
                 <a id="topRight"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerOferta' id=oferta.id %}">&nbspx&nbsp</a>
-                <a id="bottomRight" class="forma-relevo" style="--borda: #7200e4; --fundo: #8000ff;"   href="">Detalhes</a>
+                <a id="bottomRight" class="forma-relevo" style="--borda: #7200e4; --fundo: #8000ff;"   href="{% url 'detalharOferta' id=oferta.id %}">Detalhes</a>
             </div>
         {% endfor %}
         {% if quant == 0 %}
