@@ -68,7 +68,7 @@ def aceitarCambio(request, id):
         usuario = Sobrevivente.objects.get(id=request.user.id)
         cambio = Cambio.objects.get(id=id)
         if cambio.primaria.vendedor == usuario:  
-            if not(cambio.primaria.concluida or cambio.secundaria.concluida):
+            if not(cambio.primaria.concluida or cambio.secundaria.concluida) and (cambio.estado == 'E'):
                 
                 # Troca
                 for cm in Cambio.objects.filter(primaria=cambio.primaria).exclude(id=cambio.id):
@@ -97,10 +97,10 @@ def recusarCambio(request, id):
     if request.user.is_authenticated: 
         usuario = Sobrevivente.objects.get(id=request.user.id)
         cambio = Cambio.objects.get(id=id)
-        if cambio.primaria.vendedor == usuario:  
+        if (cambio.primaria.vendedor == usuario) and (cambio.estado == 'E'):  
             cambio.estado = 'R'
             cambio.save()
-            return detalharOferta(request, cambio.primaria)
+            return detalharOferta(request, cambio.primaria.id)
 
     return redirect('minhasOfertas')
 
