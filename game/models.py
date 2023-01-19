@@ -13,7 +13,7 @@ class Sobrevivente(models.Model):
     saldo = models.IntegerField(verbose_name="Saldo", default=0)
 
     def __str__(self) -> str:
-        return f"{self.usuario.first_name} {self.usuario.last_name} -> {self.saldo} pontos"
+        return f"{self.usuario.first_name} {self.usuario.last_name}"
 
 class Inventario(models.Model):
     sobrevivente = models.OneToOneField(Sobrevivente, on_delete=models.CASCADE, verbose_name="Dono")
@@ -44,4 +44,21 @@ class Recurso(models.Model):
         for valor in self.recurso_tipos: 
             if valor[0] == self.tipo:
                 return valor[1]
-        
+
+class Oferta(models.Model):
+    produto = models.OneToOneField(Recurso, on_delete=models.CASCADE, verbose_name="Oferta")
+    quantidade = models.IntegerField(verbose_name="Quantidade", default=1)
+    vendedor = models.OneToOneField(Sobrevivente, on_delete=models.CASCADE, verbose_name="Dono")
+
+    def __str__(self) -> str:
+        return f'Oferta de {self.vendedor}: {self.produto}'
+
+class Cambio(models.Model):
+    primaria = models.OneToOneField(Oferta, on_delete=models.CASCADE, related_name="oferta_primaria")
+    secundaria = models.OneToOneField(Oferta, on_delete=models.CASCADE, related_name="oferta_secundaria")
+    estados = (
+        ('E', 'Espera'),
+        ('A', 'Aceito'), 
+        ('R', 'Recusado'), 
+    )
+    estado = models.CharField(verbose_name="Estado", choices=estados, max_length=10)

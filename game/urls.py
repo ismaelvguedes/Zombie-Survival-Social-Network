@@ -1,6 +1,7 @@
 from django.urls import path
 from game.views.sobrevivente import *
 from game.views.inventario import *
+from game.views.loja import *
 
 urlpatterns = [
     
@@ -13,9 +14,12 @@ urlpatterns = [
     path('autenticar', autenticar, name="autenticar"),
     path('listar_sobreviventes', listar_sobreviventes, name="listar"),
 
-     # Recurso:
+    # Recurso:
     path('inventario', inventario, name="inventario"),
     path('inventario/novo', adicionarRecurso, name="adicionarRecurso"),
     path('inventario/<int:id>/editar', editarRecurso, name="editarRecurso"),
     path('inventario/<int:id>/deletar', removerRecurso, name="removerRecurso"),
+
+    # Loja
+    path('loja', loja, name="loja"),
 ]

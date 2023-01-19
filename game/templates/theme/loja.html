@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block base %}
+    <div class="campo forma-caixa">
+        <h1 id="titulo">Pesquisa</h1>
+        <form method="GET" enctype="multipart/form-data"> 
+            <label>Procurar por:</label>
+            <input class="forma-caixa" type="text">
+            <input class="forma-relevo" style="--borda: #0064ff;--fundo: #0055d9;" type="submit" value="search">
+        </form>
+    </div>
+    <div id="inventario" class="campo forma-caixa">
+
+        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-bau.png' %}">&nbspOfertas</h1>
+
+        {% for oferta in ofertas %}
+            <div class="item forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;">
+                <p><b>{{ oferta.produto.descricao }}</b></p>
+                <p>{{ oferta.quantidade }} unidades</p>
+                <p>Por {{ oferta.vendedor }}</p>
+                <p>
+                    {% with validade=oferta.produto.validade|date:'d/m/Y' %}
+                        {% if validade == "" %}
+                            Não perecivel
+                        {% else %}
+                            {{validade}}
+                        {% endif %}
+                    {% endwith %}</p>
+                <p>{{ oferta.produto.verTipo }}</p>
+                <a id="rm" class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;"   href="">Ofertar</a>
+            </div>
+        {% endfor %}
+
+        <a id="add" class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'adicionarRecurso' %}">Criar</a>
+
+    </div>
+
+{% endblock %}
