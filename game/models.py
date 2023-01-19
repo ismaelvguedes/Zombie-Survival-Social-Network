@@ -49,6 +49,7 @@ class Oferta(models.Model):
     produto = models.ForeignKey(Recurso, on_delete=models.CASCADE, verbose_name="Oferta")
     quantidade = models.IntegerField(verbose_name="Quantidade", default=1)
     vendedor = models.ForeignKey(Sobrevivente, on_delete=models.CASCADE, verbose_name="Dono")
+    concluida = models.BooleanField(verbose_name="Concluida", default=False)
 
     def __str__(self) -> str:
         return f'{self.produto}'

@@ -25,6 +25,7 @@
                 <p><b>{{ cambio.primaria }}</b></p>
                 <p>Oferecir <b style="color: red;">{{ cambio.secundaria }}</b></p>
                 <p>Para {{ cambio.primaria.vendedor }}</p>
+                <p>{{ cambio.secundaria.quantidade }} uni</p>
                 <p>Estado:{{ cambio.verEstado }}</p>
                 <a id="topRight"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerCambio' id=cambio.id %}">&nbspx&nbsp</a>
             </div>

@@ -24,9 +24,13 @@
             <div class="item forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;">
                 <p><b>{{ cambio.primaria }}</b></p>
                 <p>Oferecir <b style="color: red;">{{ cambio.secundaria }}</b></p>
-                <p>Para {{ cambio.primaria.vendedor }}</p>
+                <p>de {{ cambio.secundaria.vendedor }}</p>
+                <p>{{ cambio.secundaria.quantidade }} uni</p>
                 <p>Estado:{{ cambio.verEstado }}</p>
-                <a id="bottomRight"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'recusarCambio' id=cambio.id %}">Recusar</a>
+                {% if cambio.verEstado == 'Espera' %}
+                    <a id="bottomLeft"  class="forma-relevo" style="--borda: #00e800; --fundo: #7ac900;"  href="{% url 'aceitarCambio' id=cambio.id %}">Aceitar</a>
+                    <a id="bottomRight"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'recusarCambio' id=cambio.id %}">Recusar</a>
+                {% endif %}
             </div>
         {% endfor %}
         {% if quant == 0 %}
