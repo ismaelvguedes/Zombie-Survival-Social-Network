@@ -22,4 +22,12 @@ urlpatterns = [
 
     # Loja
     path('loja', loja, name="loja"),
+    path('ofertar', ofertar, name="ofertar"),
+    path('minhas_ofertas', minhasOfertas, name="minhas_ofertas"),
+    path('minhas_ofertas/<int:id>/deletar', removerOferta, name="removerOferta"),
+
+    path('meus_cambios', meusCambios, name="meusCambios"),
+    path('cambio/<int:id>/novo', selecionarOferta, name="cambio"),
+    path('cambio/<int:idS>/<int:idP>/confirma', cambio, name="cambio"),
+    path('remover_cambio/<int:id>/deletar', removerCambio, name="removerCambio"),
 ]

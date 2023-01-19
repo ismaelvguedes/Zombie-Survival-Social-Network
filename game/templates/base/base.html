@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="{% static 'css/menu.css' %}">
         <link rel="stylesheet" href="{% static 'css/formularios.css' %}">
         <link rel="stylesheet" href="{% static 'css/inventario.css' %}">
-        
+
     </head>
 
     <body>
@@ -27,7 +27,7 @@
 
             {% if user.is_authenticated %}
                 <nav id="perfil" class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'">
-                    <img class="icone-menu" src="{% static 'img/icone-steve.jpg' %}">
+                    <img class="icone-menu" src="{% static 'img/icone-steve.png' %}">
                         {{ user.first_name }} {{ user.last_name }}
                 </nav>
 
@@ -47,10 +47,17 @@
                 {% endif %}
     
             </ul>
+            <nav id="submenu">
+                <ul>
+                    {% block submenu %}{% endblock submenu %}
+                <ul>
+            </nav>
         </nav>
 
-        {% block base %}{% endblock %}
+        {% block base %}{% endblock %}      
         
+        <script src="{% static 'js/main.js' %}"></script>
+
     </body>
 
 </html>

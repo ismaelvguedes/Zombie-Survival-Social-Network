@@ -18,7 +18,7 @@
     </div>
     <div id="inventario" class="campo forma-caixa">
 
-        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-loja.png' %}">&nbspOfertas</h1>
+        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-steve.png' %}">&nbspMinhas Ofertas</h1>
 
         {% for oferta in ofertas %}
             <div class="item forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;">
@@ -34,12 +34,15 @@
                         {% endif %}
                     {% endwith %}</p>
                 <p>{{ oferta.produto.verTipo }}</p>
-                <a id="bottomRight" class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;" href="{% url 'cambio' id=oferta.id %}">Comprar</a>
+                <a id="topRight"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerOferta' id=oferta.id %}">&nbspx&nbsp</a>
+                <a id="bottomRight" class="forma-relevo" style="--borda: #7200e4; --fundo: #8000ff;"   href="">Detalhes</a>
             </div>
         {% endfor %}
         {% if quant == 0 %}
-            Ninguem esta oferencendo algo!
+            Voce não tem ofertas, crie uma a partir dos seus items de inventario!
         {% endif %}
+
+        <a id="add" class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'inventario' %}">Criar</a>
 
     </div>
 

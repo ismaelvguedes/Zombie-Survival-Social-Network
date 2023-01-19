@@ -18,28 +18,22 @@
     </div>
     <div id="inventario" class="campo forma-caixa">
 
-        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-loja.png' %}">&nbspOfertas</h1>
+        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-steve.png' %}">&nbspMeus Cambios</h1>
 
-        {% for oferta in ofertas %}
+        {% for cambio in cambios %}
             <div class="item forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;">
-                <p><b>{{ oferta.produto.descricao }}</b></p>
-                <p>{{ oferta.quantidade }} unidades</p>
-                <p>Por {{ oferta.vendedor }}</p>
-                <p>
-                    {% with validade=oferta.produto.validade|date:'d/m/Y' %}
-                        {% if validade == "" %}
-                            Não perecivel
-                        {% else %}
-                            {{validade}}
-                        {% endif %}
-                    {% endwith %}</p>
-                <p>{{ oferta.produto.verTipo }}</p>
-                <a id="bottomRight" class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;" href="{% url 'cambio' id=oferta.id %}">Comprar</a>
+                <p><b>{{ cambio.primaria }}</b></p>
+                <p>Oferecir <b style="color: red;">{{ cambio.secundaria }}</b></p>
+                <p>Para {{ cambio.primaria.vendedor }}</p>
+                <p>Estado:{{ cambio.verEstado }}</p>
+                <a id="topRight"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerCambio' id=cambio.id %}">&nbspx&nbsp</a>
             </div>
         {% endfor %}
         {% if quant == 0 %}
-            Ninguem esta oferencendo algo!
+            Voce não tem cambios, selecione ofertas!
         {% endif %}
+
+        <a id="add" class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'loja' %}">Criar</a>
 
     </div>
 
