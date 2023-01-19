@@ -27,28 +27,37 @@
         <nav id="menu">
             {% if user.is_authenticated %}
                 <nav id="perfil" class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'">
-                    <img class="icone-menu" src="{% static 'img/icone-steve.jpg' %}">
+                    <img class="icone-menu" src="{% static 'img/icone-steve.png' %}">
                         {{ user.first_name }} {{ user.last_name }}
                 </nav>
 
             {% else %}<nav></nav>{% endif %}
 
             <ul>
-                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'iniciar' %}"><img class="icone-menu"src="{% static 'img/icone-casa.png' %}">Inicio</a></li>
+                <li class="forma-relevo" style="--borda: #1a9f00;--fundo: #1fbf00;'"><a href="{% url 'iniciar' %}"><img class="icone-menu"src="{% static 'img/icone-casa.png' %}">Inicio</a></li>
                 {% if not user.is_authenticated %}
                     <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'conectar' %}"><img class="icone-menu" src="{% static 'img/icone-entrar.png' %}">Entrar</a></li>
                     <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'cadastrar' %}"><img class="icone-menu" src="{% static 'img/icone-criar.png' %}">Criar</a></li>
                 {% else %}
-                    <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'inventario' %}"><img class="icone-menu" src="{% static 'img/icone-mapa.png' %}">Mapa</a></li>
-                    <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'inventario' %}"><img class="icone-menu" src="{% static 'img/icone-bau.png' %}">Báu</a></li>
-                    <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;"><a href="{% url 'desconectar' %}"><img class="icone-menu" src="{% static 'img/icone-porta.png' %}">Sair</a></li>
+                    <li class="forma-relevo" style="--borda: #e68400;--fundo: #ff9300;"><a href="{% url 'inventario' %}"><img class="icone-menu" src="{% static 'img/icone-mapa.png' %}">Mapa</a></li>
+                    <li class="forma-relevo" style="--borda: #00a7f4;--fundo: #00aeff;"><a href="{% url 'inventario' %}"><img class="icone-menu" src="{% static 'img/icone-bau.png' %}">Bau</a></li>
+                    <li class="forma-relevo" style="--borda: #ffe200;--fundo: #ffca00;"><a href="{% url 'loja' %}"><img class="icone-menu" src="{% static 'img/icone-loja.png' %}">Loja</a></li>
+                    <li class="forma-relevo" style="--borda: #7200e4;--fundo: #8000ff;"><a href="{% url 'inventario' %}"><img class="icone-menu" src="{% static 'img/icone-chat.png' %}">Chat</a></li>
+                    <li class="forma-relevo" style="--borda: #e40000;--fundo: red;"><a href="{% url 'desconectar' %}"><img class="icone-menu" src="{% static 'img/icone-porta.png' %}">Sair</a></li>
                 {% endif %}
     
             </ul>
+            <nav id="submenu">
+                <ul>
+                    {% block submenu %}{% endblock submenu %}
+                <ul>
+            </nav>
         </nav>
 
         {% block base %}{% endblock %}
         
+        <script src="{% static 'js/main.js' %}"></script>
+
     </body>
 
 </html>

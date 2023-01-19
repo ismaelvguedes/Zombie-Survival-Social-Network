@@ -27,13 +27,32 @@
                         {% endif %}
                     {% endwith %}</p>
                 <p>{{ recurso.verTipo }}</p>
-                <a id="edit" class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;"   href="{% url 'editarRecurso' id=recurso.id %}">Editar</a>
-                <a id="rm"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerRecurso' id=recurso.id %}">Deletar</a>
+                <a id="bottomLeft" class="forma-relevo" style="--borda: #ee9800; --fundo: #ffa300;" onclick="ofertar({{ recurso.id }}, {{ recurso.quantidade }});">Ofertar</a>
+                <a id="bottomMed" class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;"   href="{% url 'editarRecurso' id=recurso.id %}">Editar</a>
+                <a id="bottomRight"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'removerRecurso' id=recurso.id %}">Deletar</a>
             </div>
         {% endfor %}
+        {% if quant == 0 %}
+            Você nao possui nada no seu inventario!
+        {% endif %}
 
         <a id="add" class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'adicionarRecurso' %}">Adicionar</a>
 
     </div>
 
+    <div id="entrada" class="esOn" style="--borda: white;--fundo: #d9d9d9; display: none;">
+            <span class="forma-relevo-fixa">
+                <form id="formulario" method="GET" enctype="multipart/form-data" action="{% url 'ofertar' %}">
+                    <a id="topRight" class="forma-relevo" style="--borda: red; --fundo: #c90000;" onclick="cancelarOfertar();">&nbspx&nbsp</a>
+                    <br>
+                    <br>
+                    Infome o quanto deseja vender:
+                    <input id="idOferta" type="number" name="id" style="display: none;"><br>
+                    <input id="idValor" type="number" name="valor" style="width: 50px; text-align: center; padding-right: 0px;" min="1"><br>
+                    <input id="bottomRight" class="forma-relevo" style="--borda: #ee9800;--fundo: #ffa300; box-shadow: 0px 0px 3px black;" type="submit" value="Ofertar">
+                    <br>
+                    <br>
+                </form>
+            </span>
+    </div>
 {% endblock %}

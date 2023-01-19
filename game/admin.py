@@ -5,3 +5,5 @@ from game.models import *
 admin.site.register(Sobrevivente)
 admin.site.register(Inventario)
 admin.site.register(Recurso)
+admin.site.register(Oferta)
+admin.site.register(Cambio)

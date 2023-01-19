@@ -5,7 +5,8 @@ from game.forms import RecursoForm
 def inventario(request):
     if request.user.is_authenticated:
         recursos = Recurso.objects.filter(inventario=Inventario.objects.get(sobrevivente__id=Sobrevivente.objects.get(usuario__id=request.user.id).id))
-        return render(request, 'theme/inventario.html', { 'recursos' : recursos })
+        quant = len(recursos)
+        return render(request, 'theme/inventario.html', { 'recursos' : recursos , 'quant': quant})
     return redirect('iniciar')
 
 def adicionarRecurso(request):

@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block submenu %}
+    <li><a href="{% url 'loja' %}">Loja Ofertas</a></li>
+    <li><a href="{% url 'minhasOfertas' %}">Minhas Ofertas</a></li>
+    <li><a href="{% url 'meusCambios' %}">Meus Cambios</a></li>
+{% endblock submenu %}
+
+{% block base %}
+    <div class="campo forma-caixa">
+        <h1 id="titulo">Pesquisa</h1>
+        <form method="GET" enctype="multipart/form-data"> 
+            <label>Procurar por:</label>
+            <input class="forma-caixa" type="text">
+            <input class="forma-relevo" style="--borda: #0064ff;--fundo: #0055d9;" type="submit" value="search">
+        </form>
+    </div>
+    <div id="inventario" class="campo forma-caixa">
+
+        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-loja.png' %}">&nbspDetalhar Oferta</h1>
+
+        {% for cambio in cambios %}
+            <div class="item forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;">
+                <p><b>{{ cambio.primaria }}</b></p>
+                <p>Oferecir <b style="color: red;">{{ cambio.secundaria }}</b></p>
+                <p>de {{ cambio.secundaria.vendedor }}</p>
+                <p>{{ cambio.secundaria.quantidade }} uni</p>
+                <p>Estado:{{ cambio.verEstado }}</p>
+                {% if cambio.verEstado == 'Espera' %}
+                    <a id="bottomLeft"  class="forma-relevo" style="--borda: #00e800; --fundo: #7ac900;"  href="{% url 'aceitarCambio' id=cambio.id %}">Aceitar</a>
+                    <a id="bottomRight"  class="forma-relevo" style="--borda: red; --fundo: #c90000;"  href="{% url 'recusarCambio' id=cambio.id %}">Recusar</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+        {% if quant == 0 %}
+            Voce não tem pedidos de cambios, aguarde alguem fazer uma proposta!
+
+            <a id="add" class="forma-relevo" style="--borda: #00ac00; --fundo: green;" href="{% url 'loja' %}">Criar</a>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

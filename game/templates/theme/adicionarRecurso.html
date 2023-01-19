@@ -10,7 +10,7 @@
 
 {% block base %}
 
-    <form id="formulario" class="forma-caixa" method="POST" enctype="multipart/form-data" action="{% url 'adicionarRecurso' %}">
+    <form id="formulario" class="forma-caixa-div" method="POST" enctype="multipart/form-data" action="{% url 'adicionarRecurso' %}">
         {% csrf_token %}
         {{ formRec.as_p }}
         <input class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;" type="submit" value="Salvar">
