@@ -3,7 +3,6 @@
 #chat {
     width: 90vh;
     height: 50vh;
-    margin-top: 8px;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -63,7 +62,7 @@
 
 span#nome {
     padding: 10px 20px;
-    margin-bottom: 4px;
+    margin-bottom: -4px;
     background-color: rgb(204, 0, 255);
     z-index: 5;
     border-left: 5px ridge white;
@@ -73,4 +72,6 @@ span#nome {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     font-size: 20px;
+    display: flex;
+    justify-content: space-between;
 }

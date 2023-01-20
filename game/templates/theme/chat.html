@@ -6,7 +6,7 @@
     
     <form id="form_msg" method="post" action="{% url 'enviar' id=receptor.id %}">
         {% csrf_token %}
-        <span id="nome">{{ receptor }}</span>
+        <span id="nome">{{ receptor }}<a class="forma-relevo" style="--borda: #e40000;--fundo: red;padding: 1px 2px; font-size: 10px;" onclick="denunciar();">Denunciar</a></span>
         <div id="chat" class="forma-caixa">
 
             <ul>
@@ -32,5 +32,24 @@
             </div>
         </div>
     </form>
+
+    <div id="entrada" class="esOn" style="--borda: white;--fundo: #d9d9d9; display: none;">
+        <span class="forma-relevo-fixa">
+                <a id="topRight" class="forma-relevo" style="--borda: red; --fundo: #c90000; " onclick="cancelarDenuncia();">&nbspx&nbsp</a>
+                <br>
+                <br>
+                <b  style="font-size: 20px; color: red;">Denuncia</b>
+                <br>
+                <br> 
+                <p style="text-align: center;">
+                Denunciar pessoas que foram infectadas,<b> e a cada tres denuncias</b>, a pessoa e declarada infectada!!
+                Deseja realmente denunciar essa pessoa?</p>
+                <input id="bottomLeft" class="forma-relevo" style="--borda: red; --fundo: #c90000; box-shadow: 0px 0px 3px black;font-size: 20px;" onclick="cancelarDenuncia();" type="button" value="Nao">
+                <a id="bottomRight" class="forma-relevo" style="--borda: #1a9f00;--fundo: #1fbf00; box-shadow: 0px 0px 3px black;font-size: 20px;" href="{% url 'denunciar' id=receptor.id %}">Sim</a>
+                <br>
+                <br>
+                <br>
+        </span>
+</div>
 
 {% endblock %}

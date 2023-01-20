@@ -15,15 +15,14 @@
 
     <div id="inventario" class="campo forma-caixa sepn">
 
-        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-bau.png' %}">&nbspInventario</h1>
+        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-bau.png' %}">&nbspComunidade</h1>
         <ul>
             {% for sobrevivente in sobreviventes %}
             
                 <li class="forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;'">
                     <div class="cx">{{ sobrevivente }}
                         <div>
-                            <a class="forma-relevo" href="{% url 'chat' id=sobrevivente.id %}" style="--borda: #7200e4;--fundo: #8000ff; padding: 1px 2px;">Chat</a>
-                            <a class="forma-relevo" style="--borda: #e40000;--fundo: red;padding: 1px 2px;">Denunciar</a>
+                            <a class="forma-relevo" href="{% url 'chat' id=sobrevivente.id %}" style="--borda: #7200e4;--fundo: #8000ff; padding: 1px 2px;">Conversar</a>
                         </div>
                     </div>
                 </li>

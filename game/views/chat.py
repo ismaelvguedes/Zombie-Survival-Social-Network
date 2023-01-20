@@ -29,3 +29,16 @@ def enviar(request, id):
 
         return redirect('chat', id)
     return redirect('iniciar')
+
+def denunciar(request, id):
+    if request.user.is_authenticated:
+        denunciado = Sobrevivente.objects.get(id=id)
+        if denunciado.denuncias >= 2:
+            denunciado.infectado = True
+            denunciado.denuncias += 1
+            denunciado.save()
+        else:
+            denunciado.denuncias += 1
+            denunciado.save()
+
+    return redirect('sobreviventes')

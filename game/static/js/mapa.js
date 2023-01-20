@@ -64,7 +64,7 @@ function desenhaReferencias() {
         x = imagens[index].x - 25
         y = imagens[index].y - 25
         grafico.drawImage(imagens[index].img, x, y, 50, 50);
-        grafico.font = "11px Minecraft";
+        grafico.font = "15px Minecraft";
         grafico.textAlign = "center";
         grafico.fillStyle = "white";
         grafico.fillText(imagens[index].legenda, imagens[index].x + 1, imagens[index].y + 30);
