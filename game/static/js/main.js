@@ -1,3 +1,7 @@
+var chat = document.getElementById("chat");
+chat.scrollTop = chat.scrollHeight;
+document.getElementById("aceitar").value = 'False';
+
 function ofertar(id, max){
     let entrada = document.getElementById("entrada");
     entrada.style.display = "flex";

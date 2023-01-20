@@ -1,0 +1,36 @@
+{% extends 'base/baseCentral.html' %}
+
+{% load static %}
+
+{% block base %}
+    
+    <form id="form_msg" method="post" action="{% url 'enviar' id=receptor.id %}">
+        {% csrf_token %}
+        <span id="nome">{{ receptor }}</span>
+        <div id="chat" class="forma-caixa">
+
+            <ul>
+                {% for mensagem in mensagens %}
+                   
+                    {% if mensagem.emissor == emissor %}
+                        <li class="emissor">
+                            {{ mensagem.msg }}
+                        </li>
+                    {% else %}
+                        <li class="receptor">
+                            <h4>{{ mensagem.emissor }}</h4>
+                            <p>{{ mensagem.msg }}</p>
+                        </li>
+                    {% endif %}
+
+                {% endfor %}
+            </ul>
+            
+            <div id="ent" class="forma-caixa">
+                <input id="texto" name="mensagem" class="forma-caixa" type="text" placeholder="Escreva algo ...">
+                <input class="forma-relevo" style="--borda: #0064ff;--fundo: #0055d9;" type="submit" value="Enviar">
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

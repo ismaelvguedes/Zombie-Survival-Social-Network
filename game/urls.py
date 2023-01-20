@@ -3,6 +3,7 @@ from game.views.sobrevivente import *
 from game.views.inventario import *
 from game.views.loja import *
 from game.views.mapa import *
+from game.views.chat import *
 
 urlpatterns = [
     
@@ -39,4 +40,9 @@ urlpatterns = [
     # Mapa:
     path('mapa', mapa, name="mapa"),
     path('mapa/<str:tipo>/<int:x>/<int:y>/novo', novaRef, name="novaRef"),
+
+    # Chat:
+    path('chat/sobreviventes', listarSobre, name="sobreviventes"),
+    path('chat/<int:id>/abrir', chat, name="chat"),
+    path('chat/<int:id>/enviar', enviar, name="enviar"),
 ]

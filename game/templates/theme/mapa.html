@@ -47,12 +47,12 @@
         <ul>
             {% for outro in outros %}
                 <li class="forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;'">
-                    <a>{{ outro }}
-                        <span>
-                            <b class="forma-relevo" style="--borda: #7200e4;--fundo: #8000ff; padding: 1px 2px;">Chat</b>
-                            <b class="forma-relevo" style="--borda: #e40000;--fundo: red;padding: 1px 2px;">Denunciar</b>
-                        </span>
-                    </a>
+                    <div class="cx">{{ outro }}
+                        <div>
+                            <a class="forma-relevo" href="{% url 'sobreviventes' %}" style="--borda: #7200e4;--fundo: #8000ff; padding: 1px 2px;">Chat</a>
+                            <a class="forma-relevo" style="--borda: #e40000;--fundo: red;padding: 1px 2px;">Denunciar</a>
+                        </div>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
@@ -76,13 +76,3 @@
     </script>
 
 {% endblock %}
-
-{% comment "teste" %}
-    <li><img id="Md" class="referencia" src=""></li>
-    <li><img id="Fz" class="referencia" src=""></li>
-    <li><img id="Cd" class="referencia" src=""></li>
-    <li><img id="Cv" class="referencia" src=""></li>
-    <li><img id="Ae" class="referencia" src=""></li>
-    <li><img id="Pt" class="referencia" src=""></li>
-    <li><img id="Qt" class="referencia" src=""></li>
-{% endcomment %}
