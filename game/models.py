@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Sobrevivente(models.Model):
+    x = models.IntegerField(verbose_name="x", default=0)
+    y = models.IntegerField(verbose_name="y", default=0)
     usuario = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="Usuario")
     datenasc = models.DateField(verbose_name="Data de Nascimento")
     sexo_tipos = (
@@ -72,3 +74,20 @@ class Cambio(models.Model):
         for posicao in self.estados:
             if self.estado == posicao[0]:
                 return posicao[1]
+
+class Referencia(models.Model):
+    x = models.IntegerField(verbose_name="x", default=0)
+    y = models.IntegerField(verbose_name="y", default=0)
+    tipos = (
+        ('Or', 'Orda'),
+        ('Fz', 'Fazenda'),
+        ('Md', 'Mercado'),
+        ('Ht', 'Hotel'),
+        ('Ae', 'Aeroporto'),
+        ('Pt', 'Porto'),
+        ('Qt', 'Quartel'),
+    )
+    tipo = models.CharField(verbose_name="Tipo", choices=tipos, max_length=10)
+
+    def __str__(self) -> str:
+        return f'{self.tipo} - x: { self.x } ; y: { self.y }'
