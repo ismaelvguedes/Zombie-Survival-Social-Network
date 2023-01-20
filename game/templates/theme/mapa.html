@@ -17,13 +17,15 @@
         <li><img id="Ax" class="referencia" src="{% static 'img/outro_alex.png' %}"></li>
     </ul>
 
+    <span id="titulo">MAPA DA CIDADE</span>
+
     <div id="mapa">
         <div class="sep forma-caixa-div">
             <ul>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Eu'"><img class="icone-menu" src="{% static 'img/eu.png' %}">Eu</a></li>
                 <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Or'"><img class="icone-menu" src="{% static 'img/orda.png' %}">Orda</a></li>
                 <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Fz'"><img class="icone-menu" src="{% static 'img/fazenda.png' %}">Fazenda</a></li>
                 <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Md'"><img class="icone-menu" src="{% static 'img/mercado.png' %}">Mercado</a></li>
-                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Ht'"><img class="icone-menu" src="{% static 'img/hotel.png' %}">Hotel</a></li>
             </ul>
         </div>
         <canvas id="janela" width="900" height="600">
@@ -31,7 +33,7 @@
         </canvas>
         <div class="sep forma-caixa-div">
             <ul>
-                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Eu'"><img class="icone-menu" src="{% static 'img/eu.png' %}">Eu</a></li>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Ht'"><img class="icone-menu" src="{% static 'img/hotel.png' %}">Hotel</a></li>
                 <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Ae'"><img class="icone-menu" src="{% static 'img/aeroporto.png' %}">Aeroporto</a></li>
                 <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Pt'"><img class="icone-menu" src="{% static 'img/porto.png' %}">Porto</a></li>
                 <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Qt'"><img class="icone-menu" src="{% static 'img/quartel.png' %}">Quartel</a></li>
@@ -41,21 +43,36 @@
 
     <span id="info">x: 0, y: 0</span>
 
+    <div class="sepn forma-caixa-div">
+        <ul>
+            {% for outro in outros %}
+                <li class="forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;'">
+                    <a>{{ outro }}
+                        <span>
+                            <b class="forma-relevo" style="--borda: #7200e4;--fundo: #8000ff; padding: 1px 2px;">Chat</b>
+                            <b class="forma-relevo" style="--borda: #e40000;--fundo: red;padding: 1px 2px;">Denunciar</b>
+                        </span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
     <script src="{% static 'js/mapa.js' %}"></script>
 
     <script>
         caminho = "{% url 'mapa' %}";
         {% for referencia in referencias %}
-            carregarReferencia("{{ referencia.tipo }}", {{ referencia.x }}, {{ referencia.y }});
+            carregarReferencia("{{ referencia.tipo }}", {{ referencia.x }}, {{ referencia.y }}, "{{ referencia.verTipo }}");
         {% endfor %}
         {% for outro in outros %}
             {% if outro.sexo == 'F' %}
-                carregarReferencia("Ax", {{ outro.x }}, {{ outro.y }});
+                carregarReferencia("Ax", {{ outro.x }}, {{ outro.y }}, "{{ outro.usuario.first_name }}");
             {% else %}
-                carregarReferencia("St", {{ outro.x }}, {{ outro.y }});
+                carregarReferencia("St", {{ outro.x }}, {{ outro.y }}, "{{ outro.usuario.first_name }}");
             {% endif %}
         {% endfor %}
-        carregarReferencia("Eu", {{ eu.x }}, {{ eu.y }});
+        carregarReferencia("Eu", {{ eu.x }}, {{ eu.y }}, "Eu");
     </script>
 
 {% endblock %}
