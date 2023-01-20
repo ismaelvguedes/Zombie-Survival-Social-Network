@@ -13,6 +13,9 @@ class Sobrevivente(models.Model):
     )    
     sexo = models.CharField(verbose_name="Sexo", max_length=10, choices=sexo_tipos)
     xp = models.IntegerField(verbose_name="XP", default=0)
+    
+    denuncias = models.IntegerField(verbose_name="Denuncias", default=0)
+    infectado = models.BooleanField(verbose_name="Infectado", default=False)
 
     def __str__(self) -> str:
         return f"{self.usuario.first_name} {self.usuario.last_name}"

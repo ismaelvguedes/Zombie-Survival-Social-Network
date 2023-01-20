@@ -45,4 +45,5 @@ urlpatterns = [
     path('chat/sobreviventes', listarSobre, name="sobreviventes"),
     path('chat/<int:id>/abrir', chat, name="chat"),
     path('chat/<int:id>/enviar', enviar, name="enviar"),
+    path('chat/<int:id>/denunciar', denunciar, name="denunciar"),
 ]
