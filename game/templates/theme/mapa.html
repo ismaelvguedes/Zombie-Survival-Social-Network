@@ -1,0 +1,71 @@
+{% extends 'base/baseCentral.html' %}
+
+{% load static %}
+
+{% block base %}
+
+    <ul style="display: none;">
+        <li><img id="Or" class="referencia" src="{% static 'img/orda.png' %}"></li>
+        <li><img id="Fz" class="referencia" src="{% static 'img/fazenda.png' %}"></li>
+        <li><img id="Md" class="referencia" src="{% static 'img/mercado.png' %}"></li>
+        <li><img id="Ht" class="referencia" src="{% static 'img/hotel.png' %}"></li>
+        <li><img id="Eu" class="referencia" src="{% static 'img/eu.png' %}"></li>
+        <li><img id="Ae" class="referencia" src="{% static 'img/aeroporto.png' %}"></li>
+        <li><img id="Pt" class="referencia" src="{% static 'img/porto.png' %}"></li>
+        <li><img id="Qt" class="referencia" src="{% static 'img/quartel.png' %}"></li>
+        <li><img id="St" class="referencia" src="{% static 'img/outro_steve.png' %}"></li>
+        <li><img id="Ax" class="referencia" src="{% static 'img/outro_alex.png' %}"></li>
+    </ul>
+
+    <div id="mapa">
+        <div class="sep forma-caixa-div">
+            <ul>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Or'"><img class="icone-menu" src="{% static 'img/orda.png' %}">Orda</a></li>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Fz'"><img class="icone-menu" src="{% static 'img/fazenda.png' %}">Fazenda</a></li>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Md'"><img class="icone-menu" src="{% static 'img/mercado.png' %}">Mercado</a></li>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Ht'"><img class="icone-menu" src="{% static 'img/hotel.png' %}">Hotel</a></li>
+            </ul>
+        </div>
+        <canvas id="janela" width="900" height="600">
+            
+        </canvas>
+        <div class="sep forma-caixa-div">
+            <ul>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Eu'"><img class="icone-menu" src="{% static 'img/eu.png' %}">Eu</a></li>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Ae'"><img class="icone-menu" src="{% static 'img/aeroporto.png' %}">Aeroporto</a></li>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Pt'"><img class="icone-menu" src="{% static 'img/porto.png' %}">Porto</a></li>
+                <li class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'"><a onclick="tipo='Qt'"><img class="icone-menu" src="{% static 'img/quartel.png' %}">Quartel</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <span id="info">x: 0, y: 0</span>
+
+    <script src="{% static 'js/mapa.js' %}"></script>
+
+    <script>
+        caminho = "{% url 'mapa' %}";
+        {% for referencia in referencias %}
+            carregarReferencia("{{ referencia.tipo }}", {{ referencia.x }}, {{ referencia.y }});
+        {% endfor %}
+        {% for outro in outros %}
+            {% if outro.sexo == 'F' %}
+                carregarReferencia("Ax", {{ outro.x }}, {{ outro.y }});
+            {% else %}
+                carregarReferencia("St", {{ outro.x }}, {{ outro.y }});
+            {% endif %}
+        {% endfor %}
+        carregarReferencia("Eu", {{ eu.x }}, {{ eu.y }});
+    </script>
+
+{% endblock %}
+
+{% comment "teste" %}
+    <li><img id="Md" class="referencia" src=""></li>
+    <li><img id="Fz" class="referencia" src=""></li>
+    <li><img id="Cd" class="referencia" src=""></li>
+    <li><img id="Cv" class="referencia" src=""></li>
+    <li><img id="Ae" class="referencia" src=""></li>
+    <li><img id="Pt" class="referencia" src=""></li>
+    <li><img id="Qt" class="referencia" src=""></li>
+{% endcomment %}
