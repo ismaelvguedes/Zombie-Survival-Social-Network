@@ -4,11 +4,9 @@ Rede Social de Sobrevivência Zumbi é uma rede social em um cenário de mundo a
 
 
 ## Requisitos:
-1. Uma página com as notícias das ações de outros usuários;
-2. Uma página com um mapa resumido mostrando os sobreviventes perto de você;
-3. Uma página com as informações do inventário e que mostre também as estátisticas de sobrevivência;
-5. Uma loja de câmbio que apresente filtros de localização, preço e demanda.
-6. Um menu que esteja em todas as páginas acima e que mostre informações como localização e recursos essenciais;
+1. Uma página com um mapa resumido mostrando os sobreviventes perto de você;
+2. Uma página com as informações do inventário;
+3. Um menu que esteja em todas as páginas acima e que mostre informações como localização e recursos essenciais;
 
 * Observações: 
     1. Os recursos, que não estão para venda, não serão mostrados para outros sobrevivêntes, pois isso evitará roubos e furtos;
