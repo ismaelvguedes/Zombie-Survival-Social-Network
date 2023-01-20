@@ -7,10 +7,15 @@ from game.views.mapa import *
 from game.views.chat import *
 
 from rest_framework import routers
-from game.view import SobreviventeViewSet
+from game.view import *
 
 router = routers.DefaultRouter()
+router.register('usuarios', UsuarioViewSet)
 router.register('sobreviventes', SobreviventeViewSet)
+router.register('inventarios', InventarioViewSet)
+router.register('recursos', RecursoViewSet)
+router.register('ofertas', OfertaViewSet)
+router.register('Cambios', CambioViewSet)
 
 urlpatterns = [
     
