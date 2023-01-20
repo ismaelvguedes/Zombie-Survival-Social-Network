@@ -15,7 +15,7 @@ class Sobrevivente(models.Model):
     xp = models.IntegerField(verbose_name="XP", default=0)
 
     def __str__(self) -> str:
-        return f"{self.usuario.first_name} {self.usuario.last_name} -> {self.xp} xp "
+        return f"{self.usuario.first_name} {self.usuario.last_name}"
 
 class Inventario(models.Model):
     sobrevivente = models.OneToOneField(Sobrevivente, on_delete=models.CASCADE, verbose_name="Dono")
@@ -70,7 +70,6 @@ class Cambio(models.Model):
         return f'Cambio({self.id})'
 
     def verEstado(self):
-        estado = None
         for posicao in self.estados:
             if self.estado == posicao[0]:
                 return posicao[1]
@@ -91,3 +90,8 @@ class Referencia(models.Model):
 
     def __str__(self) -> str:
         return f'{self.tipo} - x: { self.x } ; y: { self.y }'
+
+    def verTipo(self):
+        for posicao in self.tipos:
+            if self.tipo == posicao[0]:
+                return posicao[1]

@@ -39,10 +39,11 @@ janela.addEventListener('click', function (event) {
 var imagens = [];
 
 class Imagem {
-    constructor(img, x, y){
+    constructor(img, x, y, legenda){
         this.img = img;
         this.x = x;
         this.y = y;
+        this.legenda = legenda
     }
 }
 
@@ -54,13 +55,19 @@ function clickNovaReferencia(){
 
 }
 
-function carregarReferencia(tipo, x, y) {
-    imagens.push(new Imagem(document.querySelector("#" + tipo).cloneNode(true), x, y));
+function carregarReferencia(tipo, x, y, lgd) {
+    imagens.push(new Imagem(document.querySelector("#" + tipo).cloneNode(true), x, y, lgd));
 }
 
 function desenhaReferencias() {    
     for (let index = 0; index < imagens.length; index++) {
-        grafico.drawImage(imagens[index].img, imagens[index].x -25, imagens[index].y - 25, 50, 50);
+        x = imagens[index].x - 25
+        y = imagens[index].y - 25
+        grafico.drawImage(imagens[index].img, x, y, 50, 50);
+        grafico.font = "11px Minecraft";
+        grafico.textAlign = "center";
+        grafico.fillStyle = "white";
+        grafico.fillText(imagens[index].legenda, imagens[index].x + 1, imagens[index].y + 30);
     }
 }
 
