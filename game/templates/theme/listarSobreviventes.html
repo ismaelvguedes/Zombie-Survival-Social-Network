@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block base %}
+
+    <div class="campo forma-caixa">
+        <h1 id="titulo">Pesquisa</h1>
+        <form method="GET" enctype="multipart/form-data"> 
+            <label>Procurar por:</label>
+            <input class="forma-caixa" type="text">
+            <input class="forma-relevo" style="--borda: #0064ff;--fundo: #0055d9;" type="submit" value="search">
+        </form>
+    </div>
+
+    <div id="inventario" class="campo forma-caixa sepn">
+
+        <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-bau.png' %}">&nbspInventario</h1>
+        <ul>
+            {% for sobrevivente in sobreviventes %}
+            
+                <li class="forma-relevo-fixa" style="--borda: white;--fundo: #d9d9d9;'">
+                    <div class="cx">{{ sobrevivente }}
+                        <div>
+                            <a class="forma-relevo" href="{% url 'chat' id=sobrevivente.id %}" style="--borda: #7200e4;--fundo: #8000ff; padding: 1px 2px;">Chat</a>
+                            <a class="forma-relevo" style="--borda: #e40000;--fundo: red;padding: 1px 2px;">Denunciar</a>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if quant == 0 %}
+            Não ha niguem, alem de voce!!
+        {% endif %}
+
+    </div>
+
+    
+
+{% endblock %}

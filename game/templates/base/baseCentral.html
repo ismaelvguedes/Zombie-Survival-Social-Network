@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="{% static 'css/formularios.css' %}">
         <link rel="stylesheet" href="{% static 'css/inventario.css' %}">
         <link rel="stylesheet" href="{% static 'css/mapa.css' %}">
+        <link rel="stylesheet" href="{% static 'css/chat.css' %}">
     
     </head>
 
@@ -43,7 +44,7 @@
                     <li class="forma-relevo" style="--borda: #e68400;--fundo: #ff9300;"><a href="{% url 'mapa' %}"><img class="icone-menu" src="{% static 'img/icone-mapa.png' %}">Mapa</a></li>
                     <li class="forma-relevo" style="--borda: #00a7f4;--fundo: #00aeff;"><a href="{% url 'inventario' %}"><img class="icone-menu" src="{% static 'img/icone-bau.png' %}">Bau</a></li>
                     <li class="forma-relevo" style="--borda: #ffe200;--fundo: #ffca00;"><a href="{% url 'loja' %}"><img class="icone-menu" src="{% static 'img/icone-loja.png' %}">Loja</a></li>
-                    <li class="forma-relevo" style="--borda: #7200e4;--fundo: #8000ff;"><a href="{% url 'inventario' %}"><img class="icone-menu" src="{% static 'img/icone-chat.png' %}">Chat</a></li>
+                    <li class="forma-relevo" style="--borda: #7200e4;--fundo: #8000ff;"><a href="{% url 'sobreviventes' %}"><img class="icone-menu" src="{% static 'img/icone-chat.png' %}">Chat</a></li>
                     <li class="forma-relevo" style="--borda: #e40000;--fundo: red;"><a href="{% url 'desconectar' %}"><img class="icone-menu" src="{% static 'img/icone-porta.png' %}">Sair</a></li>
                 {% endif %}
     

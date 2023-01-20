@@ -139,3 +139,33 @@ input {
 
     text-align: center;
 }
+
+.sepn {
+    margin-top: 20px;
+}
+
+.sepn > ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sepn > ul > li {
+    width: 100%;
+    margin: 4px;
+    padding: 5px 8px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.cx {
+    width: 100%;    
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+}
