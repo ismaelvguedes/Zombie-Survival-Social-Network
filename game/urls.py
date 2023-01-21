@@ -1,13 +1,26 @@
-from django.urls import path
+from django.urls import path, include
+
 from game.views.sobrevivente import *
 from game.views.inventario import *
 from game.views.loja import *
 from game.views.mapa import *
 from game.views.chat import *
 
+from rest_framework import routers
+from game.view import *
+
+router = routers.DefaultRouter()
+router.register('usuarios', UsuarioViewSet)
+router.register('sobreviventes', SobreviventeViewSet)
+router.register('inventarios', InventarioViewSet)
+router.register('recursos', RecursoViewSet)
+router.register('ofertas', OfertaViewSet)
+router.register('Cambios', CambioViewSet)
+
 urlpatterns = [
     
     path('', iniciar, name="iniciar"), # home
+    path('api/', include(router.urls)),
 
     # Sobrevivente:
     path('conectar', conectar, name="conectar"),

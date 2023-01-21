@@ -132,8 +132,9 @@ def cambio(request, idP, idS):
                         # Se ja existe um cambio para essas mesmas ofertas primaria e secundaria ou vice e versa
                         if (len(Cambio.objects.filter(primaria=ofp, secundaria=ofs))) + (len(Cambio.objects.filter(primaria=ofs, secundaria=ofp))) == 0:
 
-                            Cambio.objects.create(primaria=ofp, secundaria=ofs, estado='E')
-                            return redirect('meusCambios')
+                            if (ofp.produto.valor * ofp.quantidade) ==(ofs.produto.valor * ofs.quantidade):
+                                Cambio.objects.create(primaria=ofp, secundaria=ofs, estado='E')
+                                return redirect('meusCambios')
 
     return redirect('loja')
 

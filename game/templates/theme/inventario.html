@@ -26,6 +26,7 @@
                             {{validade}}
                         {% endif %}
                     {% endwith %}</p>
+                <p>{{ recurso.valor }} pontos</p>
                 <p>{{ recurso.verTipo }}</p>
                 <a id="bottomLeft" class="forma-relevo" style="--borda: #ee9800; --fundo: #ffa300;" onclick="ofertar({{ recurso.id }}, {{ recurso.quantidade }});">Ofertar</a>
                 <a id="bottomMed" class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;"   href="{% url 'editarRecurso' id=recurso.id %}">Editar</a>

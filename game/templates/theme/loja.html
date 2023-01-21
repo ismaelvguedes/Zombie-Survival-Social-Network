@@ -33,6 +33,7 @@
                             {{validade}}
                         {% endif %}
                     {% endwith %}</p>
+                <p>{{ oferta.produto.valor }} pontos</p>
                 <p>{{ oferta.produto.verTipo }}</p>
                 <a id="bottomRight" class="forma-relevo" style="--borda: yellow; --fundo: #cfcf00;" href="{% url 'cambio' id=oferta.id %}">Comprar</a>
             </div>

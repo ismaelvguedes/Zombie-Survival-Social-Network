@@ -13,6 +13,10 @@ function ofertar(id, max){
     idValor.max = max;
 }
 
+function cancelarOfertar(){
+    entrada.style.display = "none";
+}
+
 function denunciar(){
     let entrada = document.getElementById("entrada");
     entrada.style.display = "flex";

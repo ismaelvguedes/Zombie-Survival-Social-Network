@@ -41,6 +41,7 @@ class Recurso(models.Model):
     )
     tipo = models.CharField(verbose_name="Tipo", choices=recurso_tipos, max_length=2)
     inventario = models.ForeignKey(Inventario, on_delete=models.CASCADE, verbose_name="Inventario")
+    valor = models.IntegerField(verbose_name="Valor", default=0)
 
     def __str__(self) -> str:
         return f"{self.descricao}"

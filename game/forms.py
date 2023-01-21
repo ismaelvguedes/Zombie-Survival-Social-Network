@@ -22,7 +22,7 @@ class RecursoForm(forms.ModelForm):
 
     class Meta:
         model = Recurso
-        fields = ('descricao', 'quantidade', 'validade', 'tipo')
+        fields = ('descricao', 'quantidade', 'validade', 'valor', 'tipo')
         widgets = {
             'validade': forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d')
         }
