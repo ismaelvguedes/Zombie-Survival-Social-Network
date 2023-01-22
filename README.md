@@ -1,12 +1,17 @@
-# ZSSN
+# ZSSN - Zombie Survival Social Network
 
-Rede Social de Sobrevivência Zumbi é uma rede social em um cenário de mundo apocalíptico, que tem por função o compartilhamento de recursos entre sobreviventes. Ele também é uma API REST, que fará CRUD entre as informações. Inicialmente será feito em django e utilizara o protocolo HTTP, ou seja, não será em realtime, mas sim baseado em ações.
+É uma aplicação web fictícia que se basea em elementos graficos do jogo eletrônico Minecraft. O sistema é feito em python utilizando o framework django. 
+Além disso, a aplicação também é uma API que retorna informações sobre os supostos sobrevivêntes e recursos.
 
+* Observações:
+    1. Esse projeto foi proposto por uma atividade escolar do Instituto Federal do Piauí - Campus Corrente, pelo professor [Felipe Santos](https://github.com/fgsantosti/)
+    2. Atenção Mojango e Microsoft este projeto não tem fins lucrativos. E todos os dados presentes de pessoa são ficticios.
 
-## Requisitos:
-1. Uma página com um mapa resumido mostrando os sobreviventes perto de você;
-2. Uma página com as informações do inventário;
-3. Um menu que esteja em todas as páginas acima e que mostre informações como localização e recursos essenciais;
+## Objetivos:
+1. Fazer a admissão de novos sobreviventes(usuarios) e seus recursos;
+2. Fazer a troca de recursos entre sobreviventes interessados em realizar ofertas(ofertas e câmbios);
+3. Fazer a comunicão entre sobreviventes(chat);
+4. Mostrar mapa com as posições de outros sobreviventes, ordas de zumbis e locais de interesse;
 
 * Observações: 
     1. Os recursos, que não estão para venda, não serão mostrados para outros sobrevivêntes, pois isso evitará roubos e furtos;
@@ -14,41 +19,17 @@ Rede Social de Sobrevivência Zumbi é uma rede social em um cenário de mundo a
 
 ## Tabelas:
 
-1. Sobrevivente:
-    * <img src="https://play-lh.googleusercontent.com/G7PgPigYZtgSYuI54jFWR0in7UHakWiPsHIzuqnV5Go9LYVM_tEt7QASOdUuhfBPCNE" width="80px">
-    * Nome -> VARCHAR;
-    * Idade -> INT;
-    * Sexo -> VARCHAR;
-    * Saldo -> INT;
+1. Sobrevivente (<img src="https://rede-social-zumbi.herokuapp.com/static/img/icone-steve.png" width="20px">)
 
-2. Localização:
-    * <img src="https://static.vecteezy.com/ti/vetor-gratis/p1/155483-mapa-do-tesouro-vector-gratis-vetor.jpg" width="80px">
-    * Latitude -> FLOAT;
-    * Longitude -> FLOAT;
-    * Horário -> DATETIME;
-    * sobrevivente -> Sobrevivente;
+2. Inventário (<img src="https://rede-social-zumbi.herokuapp.com/static/img/icone-bau.png" width="20px">)
 
-3. Inventário:
-    * <img src="https://i.pinimg.com/736x/86/da/ac/86daacfd8ac30bc5e6a611955e456e0d.jpg" width="80px">
-    * sobrevivente -> Sobrevivente;
+3. Recurso (<img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/8/8a/Gold_Ingot_JE4_BE2.png/revision/latest/scale-to-width-down/150?cb=20200224211607" width="20px">)
 
-4. Recurso:
-    * <img src="https://portalvidalivre.com/uploads/article/image/1528/Design_sem_nome_-_2022-01-24T061629.364.jpg" width="80px">
-    * Descrição -> VARCHAR - Ex .: "Munição .5mm - Tauros";
-    * Quantidade -> INT;
-    * Validade -> VARCHAR - OBS: Se tiver;
-    * Tipo: -> VARCHAR - Ex .: "Água, Comida, Medicação, Armas, Munição, Circuito, Mapas, IE(Itens especiais)";
-    * Inventário -> Inventario;
+4. Oferta (<img src="https://static.wikia.nocookie.net/minecraft_br_gamepedia/images/4/40/Papel.png/revision/latest?cb=20110829154925" width="20px">)
 
-5. Câmbio:
-    * <img src="https://1.bp.blogspot.com/-NkX9rKZKCDM/YairuZxKt-I/AAAAAAAA76A/Up-ZpLRQMxUj1NOVqJ6lza7qTfZfyExBwCNcBGAsYHQ/s16000/distrato-escritura-publica-nao-registrada.webp" width="80px">
-    * itemVenda -> Recurso;
-    * quantidadeIV -> INT;
-    * vendedor -> Sobrevivente;
-    
-    * valor -> INT;
-    * vendido -> BOOL;
 
-    * itemCompra -> Recurso;
-    * quantidadeIC -> INT;
-    * comprador -> Sobrevivente;
+5. Câmbio (<img src="https://rede-social-zumbi.herokuapp.com/static/img/icone-loja.png" width="20px">)
+
+6. Referência (<img src="https://rede-social-zumbi.herokuapp.com/static/img/icone-mapa.png" width="20px">)
+
+7. Mensagem (<img src="https://rede-social-zumbi.herokuapp.com/static/img/icone-chat.png" width="20px">)
