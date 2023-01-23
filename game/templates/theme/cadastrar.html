@@ -9,12 +9,15 @@
 {% endblock %}
 
 {% block base %}
+<div id="inventario" class="campo forma-caixa">
 
+    <h1 id="titulo"><img class="icone-menu" src="{% static 'img/icone-criar.png' %}">&nbspCadastrar</h1>
     <form id="formulario" method="POST" enctype="multipart/form-data" action="{% url 'cadastrar' %}">
         {% csrf_token %}
         {{ formUser.as_p }}
         {{ formSob.as_p }}
-        <input type="submit">
+        <input class="forma-relevo" type="submit">
     </form>
+</div>
 
 {% endblock %}
