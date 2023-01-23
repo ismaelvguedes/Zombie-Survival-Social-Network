@@ -1,5 +1,8 @@
 # ZSSN - Zombie Survival Social Network
 
+* Video de Apresentação:
+- https://www.youtube.com/watch?v=RcLmLFgRmeU
+
 É uma aplicação web fictícia que se basea em elementos graficos do jogo eletrônico Minecraft. O sistema é feito em python utilizando o framework django. 
 Além disso, a aplicação também é uma API que retorna informações sobre os supostos sobrevivêntes e recursos.
 
