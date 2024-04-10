@@ -1,8 +1,8 @@
-from rest_framework import viewsets, filters
-from game.serializers import *
-from game.models import *
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+# from rest_framework import viewsets, filters
+# from game.serializers import *
+# from game.models import *
+# from django_filters.rest_framework import DjangoFilterBackend
+# from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 # class SobreviventeViewSet(viewsets.ModelViewSet):
 #     """Listando sobreviventes"""
