@@ -66,9 +66,9 @@
         {% endfor %}
         {% for outro in outros %}
             {% if outro.sexo == 'F' %}
-                carregarReferencia("Ax", {{ outro.x }}, {{ outro.y }}, "{{ outro.usuario.first_name }}");
+                carregarReferencia("Ax", {{ outro.x }}, {{ outro.y }}, "{{ outro.nomeCompleto }}");
             {% else %}
-                carregarReferencia("St", {{ outro.x }}, {{ outro.y }}, "{{ outro.usuario.first_name }}");
+                carregarReferencia("St", {{ outro.x }}, {{ outro.y }}, "{{ outro.nomeCompleto }}");
             {% endif %}
         {% endfor %}
         carregarReferencia("Eu", {{ eu.x }}, {{ eu.y }}, "Eu");

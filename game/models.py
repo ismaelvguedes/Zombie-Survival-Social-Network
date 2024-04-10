@@ -1,30 +1,59 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 
-# Create your models here.
-class Sobrevivente(models.Model):
+class CustomUserManager(BaseUserManager):
+    def create_user(self, email, password=None, **extra_fields):
+        if not email:
+            raise ValueError('The Email field must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        return self.create_user(email, password, **extra_fields)
+    
+class Sobrevivente(AbstractUser):
+    username = None
+    first_name = None
+    last_name = None
+
+    nomeCompleto = models.CharField(max_length=100, verbose_name="Nome completo")
+    email = models.EmailField(unique=True)
     x = models.IntegerField(verbose_name="x", default=0)
     y = models.IntegerField(verbose_name="y", default=0)
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="Usuario")
     datenasc = models.DateField(verbose_name="Data de Nascimento")
-    sexo_tipos = (
-        ('M','Masculino'), 
-        ('F','Feminino')
-    )    
+    sexo_tipos = (('M','Masculino'), ('F','Feminino'))    
     sexo = models.CharField(verbose_name="Sexo", max_length=10, choices=sexo_tipos)
+
     xp = models.IntegerField(verbose_name="XP", default=0)
-    
     denuncias = models.IntegerField(verbose_name="Denuncias", default=0)
     infectado = models.BooleanField(verbose_name="Infectado", default=False)
 
-    def __str__(self) -> str:
-        return f"{self.usuario.first_name} {self.usuario.last_name}"
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['nomeCompleto','datenasc','sexo',]
+
+    objects = CustomUserManager()
+
+    class Meta:
+        verbose_name = "Sobrevivente"
+        verbose_name_plural = "Sobreviventes"
+
+    def __str__(self):
+        return self.email
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
 
 class Inventario(models.Model):
     sobrevivente = models.OneToOneField(Sobrevivente, on_delete=models.CASCADE, verbose_name="Dono")
 
     def __str__(self) -> str:
-        return f" Inventário({self.id}) do sobrevivente {self.sobrevivente.usuario.first_name}"
+        return f" Inventário de {self.sobrevivente.email}"
 
 class Recurso(models.Model):
     descricao = models.CharField(verbose_name="Descricao", max_length=100)

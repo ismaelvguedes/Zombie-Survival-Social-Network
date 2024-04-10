@@ -5,11 +5,11 @@ register = template.Library()
 
 @register.simple_tag
 def tipoUser(id):
-    infectado = Sobrevivente.objects.get(usuario__id=id).infectado
-    sexo = Sobrevivente.objects.get(usuario__id=id).sexo
+    infectado = Sobrevivente.objects.get(id=id).infectado
+    sexo = Sobrevivente.objects.get(id=id).sexo
 
     if infectado:
-        return  settings.STATIC_URL +   "img/icone-infectado.png"
+        return  settings.STATIC_URL + "img/icone-infectado.png"
     else:
         if sexo == 'F':
             return settings.STATIC_URL + "img/icone-alex.png"

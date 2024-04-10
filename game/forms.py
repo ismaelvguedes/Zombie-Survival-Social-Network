@@ -1,21 +1,19 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from game.models import Sobrevivente, Recurso
 
-class UsuarioCreateForm(UserCreationForm):
+# class UsuarioCreateForm(UserCreationForm):
 
-    class Meta:
-        model = User
-        fields = ('username', 'email', 'first_name', 'last_name')
+#     class Meta:
+#         model = User
+#         fields = ('username', 'email', 'first_name', 'last_name')
 
 class SobreviventeForm(forms.ModelForm):
-
     class Meta:
         model = Sobrevivente
-        fields = ('datenasc', 'sexo')
+        fields = ('nomeCompleto', 'sexo', 'datenasc', 'email', 'password')
         widgets = {
-            'datenasc': forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d')
+            'datenasc': forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d'),
+            'password': forms.PasswordInput(render_value=True),
         }
 
 class RecursoForm(forms.ModelForm):
@@ -24,5 +22,5 @@ class RecursoForm(forms.ModelForm):
         model = Recurso
         fields = ('descricao', 'quantidade', 'validade', 'valor', 'tipo')
         widgets = {
-            'validade': forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d')
+            'validade': forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d'),
         }

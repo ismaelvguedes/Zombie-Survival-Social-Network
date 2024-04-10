@@ -20,7 +20,7 @@ def ofertar(request):
         valor = int(request.GET.get("valor", ""))
         if (id is not None) and (valor is not None):
             produto = Recurso.objects.get(id=id)
-            user = Sobrevivente.objects.get(usuario__id=request.user.id)
+            user = Sobrevivente.objects.get(id=request.user.id)
             if user.id == produto.inventario.sobrevivente.id:
                 if produto.quantidade >= valor:
                     oferta = Oferta.objects.create(produto=produto, quantidade=valor, vendedor=user)

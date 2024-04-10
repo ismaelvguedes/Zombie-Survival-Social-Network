@@ -3,14 +3,14 @@ from game.models import Mensagem, Sobrevivente
 
 def listarSobre(request):
     if request.user.is_authenticated:
-        usuario = Sobrevivente.objects.get(usuario__id=request.user.id)
+        usuario = Sobrevivente.objects.get(id=request.user.id)
         sobreviventes = Sobrevivente.objects.exclude(id=usuario.id)
         return render(request, "theme/listarSobreviventes.html", { "sobreviventes" : sobreviventes})
     return redirect('iniciar')
 
 def chat(request, id):
     if request.user.is_authenticated:
-        emissor = Sobrevivente.objects.get(usuario__id=request.user.id)
+        emissor = Sobrevivente.objects.get(id=request.user.id)
         receptor = get_object_or_404(Sobrevivente, pk=id)
         mensagens = Mensagem.objects.filter(emissor=emissor, receptor=receptor)
         mensagens_inv = Mensagem.objects.filter(emissor=receptor, receptor=emissor)
@@ -20,7 +20,7 @@ def chat(request, id):
 
 def enviar(request, id):
     if request.user.is_authenticated:
-        emissor = Sobrevivente.objects.get(usuario__id=request.user.id)
+        emissor = Sobrevivente.objects.get(id=request.user.id)
         receptor = get_object_or_404(Sobrevivente, pk=id)
         msg = request.POST['mensagem']
         if msg != '':

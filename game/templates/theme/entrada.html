@@ -15,7 +15,7 @@
         <form id="form_login" method="post" action="{% url 'autenticar' %}">
             {% csrf_token %}
             <ul>
-                <li><label for="inp_user">Usuario:</label><input id="inp_user" name="user" type="text" maxlength="20"></li>
+                <li><label for="inp_email">Email:</label><input id="inp_email" name="email" type="email" maxlength="50"></li>
                 <li><label for="inp_pass">Senha:</label><input id="inp_pass" name="pass" type="password"></li>
                 <li><input class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;" type="submit" value="Entrar"></li>
             </ul>

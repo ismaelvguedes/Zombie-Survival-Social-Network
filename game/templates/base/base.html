@@ -30,7 +30,7 @@
 
             {% if user.is_authenticated %}
                 <nav id="perfil" class="forma-relevo" style="--borda: white;--fundo: #d9d9d9;'">
-                    <img class="icone-menu" src="{% tipoUser user.id %}">
+                    <img class="icone-menu" src="{% tipoUser request.user.id %}">
                         {{ user.first_name }} {{ user.last_name }}
                 </nav>
 
