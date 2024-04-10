@@ -9,7 +9,7 @@
   "routes": [
     {
         "src": "/(.*)",
-        "dest": "vercel_app/wsgi.py"
+        "dest": "core/wsgi.py"
     }
-]
+  ]
 }
