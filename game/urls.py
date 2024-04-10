@@ -8,7 +8,6 @@ from game.views.mapa import *
 from game.views.chat import *
 
 # from rest_framework import routers
-from game.view import *
 
 # router = routers.DefaultRouter()
 # router.register('usuarios', UsuarioViewSet)
