@@ -132,8 +132,12 @@ class Referencia(models.Model):
 class Mensagem(models.Model):
     emissor = models.ForeignKey(Sobrevivente, on_delete=models.CASCADE, verbose_name="Emissor", related_name="emissor")
     receptor = models.ForeignKey(Sobrevivente, on_delete=models.CASCADE, verbose_name="Receptor", related_name="receptor")
-    msg = models.TextField(max_length="300", verbose_name="Mensagem",)
+    msg = models.TextField(max_length="300", verbose_name="Mensagem")
     tempo = models.DateTimeField(auto_now=True, verbose_name="Tempo")
 
     def __str__(self) -> str:
         return f"Msg({self.id}) de {self.emissor} para {self.receptor}"
+    
+    class Meta:
+        verbose_name = "Mensagem"
+        verbose_name_plural = "Mensagens"

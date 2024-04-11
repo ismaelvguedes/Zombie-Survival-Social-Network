@@ -15,6 +15,7 @@ def cadastrar(request):
         
         if formSob.is_valid():
             sobrevivente = formSob.save(commit=False)
+            sobrevivente.set_password(formSob.cleaned_data.get('password'))
             formSob.save()
             inventario = Inventario.objects.create(sobrevivente=sobrevivente)
             inventario.save()
@@ -33,10 +34,9 @@ def desconectar(request):
 def autenticar(request):
     email = request.POST['email']
     senha = request.POST['pass']
-    sobrevivente = authenticate(request, email=email, password=senha)
+    sobrevivente = authenticate(email=email, password=senha)
     if sobrevivente is not None:
         login(request, sobrevivente)
-        print('logado')
         return redirect('iniciar')
     else:
         return redirect('conectar')
