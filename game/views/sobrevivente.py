@@ -36,6 +36,7 @@ def autenticar(request):
     sobrevivente = authenticate(request, email=email, password=senha)
     if sobrevivente is not None:
         login(request, sobrevivente)
+        print('logado')
         return redirect('iniciar')
     else:
         return redirect('conectar')
